@@ -6,7 +6,7 @@ const cheerio = require("cheerio");
 
 function scrape(callback) {
     console.log("Scraping wine.com...");
-    axios.get("https://www.newyorker.com/latest/news")
+    axios.get("https://www.wine.com/latest/news")
         .then((response) => {
             console.log("Received " + response.status + " " + response.statusText);
             const html = response.data;
@@ -14,7 +14,7 @@ function scrape(callback) {
             // Parse html using Cheerio library
             const $ = cheerio.load(html);
             const articles = $("li.River__riverItem___3huWr");
-            console.log("Found " + articles.length + " articles");
+            console.log("Found " + articles.length + "articles");
 
             var newsArticles = [];
 
@@ -31,7 +31,7 @@ function scrape(callback) {
                 // console.log("Heading: " + heading);
                 // console.log("Description; " + description);
                 // console.log("Date: " + date);
-                // console.log("URL: https://www.newyorker.com" + url);
+                // console.log("URL: https://www.wine.com" + url);
                 // console.log("Image URL: " + img_url);
 
                 var newsArticle = {

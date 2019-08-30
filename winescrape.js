@@ -4,52 +4,36 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-function scrape(callback) {
-    console.log("Scraping wine.com...");
-    axios.get("https://www.wine.com/latest/news")
-        .then((response) => {
-            console.log("Received " + response.status + " " + response.statusText);
-            const html = response.data;
+console.log("Scraping wine.com...");
+axios.get("https://www.wine.com/list/wine/california/7155-106870")
+    .then((response) => {
+        console.log("Received " + response.status + " " + response.statusText);
+        const html = response.data;
 
-            // Parse html using Cheerio library
-            const $ = cheerio.load(html);
-            const articles = $("li.River__riverItem___3huWr");
-            console.log("Found " + articles.length + "articles");
+        // Parse html using Cheerio library
+        const $ = cheerio.load(html, { xmlMode: false });
 
-            var newsArticles = [];
+        const scriptContents = $('script[name="sharify"]').get(0).children[0].data;
+        const startIndex = scriptContents.indexOf('{');
+        const stopIndex = scriptContents.lastIndexOf('}');
+        const jsonString = scriptContents.substring(startIndex, stopIndex+1);
+        const json = JSON.parse(jsonString);
+        const models = json.model.collection.models;
 
-            // Extract information about each article
-            for (var i=0; i<articles.length; i++) {
-                var article = $(articles.get(i));
-                var heading = article.find("h4").text();
-                var description = article.find("h5").text();
-                var date = article.find("h6").text();
-                var img_url = article.find("img").attr("src");
-                var url = article.find("a.Link__link___3dWao").attr("href");
+        for (var i=0; i<models.length; i++) {
+            var wine = models[i];
+            console.log("Name: " + wine.catalogModel.fullName);
+            console.log("Region: " + wine.catalogModel.region);
+            console.log("Nested region: " + wine.catalogModel.nestedRegionName);
+            console.log("Varietal: " + wine.catalogModel.varietal.shortDesc);
+            console.log("Alcohol %: " + wine.catalogModel.alcoholPercent);
+            console.log("Vintage: " + wine.catalogModel.vintage);
+            console.log("Volume: " + wine.catalogModel.volume);
+            console.log("Price: " + wine.catalogModel.regularPrice.display);
+            console.log("Vineyard: " + wine.catalogModel.vineyard.fullName);
+            console.log("Stock: " + wine.catalogModel.stock);
+            // console.log(wine.catalogModel.longDescription);
+            console.log("---");
+        }
 
-                // console.log("----------");
-                // console.log("Heading: " + heading);
-                // console.log("Description; " + description);
-                // console.log("Date: " + date);
-                // console.log("URL: https://www.wine.com" + url);
-                // console.log("Image URL: " + img_url);
-
-                var newsArticle = {
-                    heading: heading,
-                    description: description,
-                    date: date,
-                    url: url,
-                    img_url: img_url,
-                    comments: []
-                };
-                newsArticles.push(newsArticle);
-            }
-
-            callback(newsArticles);
-
-        });
-}
-
-module.exports = {
-    scrape: scrape
-};
+    });

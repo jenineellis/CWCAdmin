@@ -9,12 +9,13 @@ const winescrape = require("./winescrape");
 require('dotenv').config()
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
-winescrape.scrape((wineSeed) => {
+winescrape.scrapeAll()
+  .then((wineSeed) => {
   // wineSeed is an array of wines obtained from scraping wine.com
   db.Wine
-    .remove({})
+    .deleteMany({})
     .then(() => db.Wine.collection.insertMany(wineSeed))
     .then(data => {
       console.log(data.result.n + " records inserted!");

@@ -5,10 +5,20 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 
-function scrape(callback) {
+async function scrapeAll() {
+    var allWines = [];
+    for (var i = 1; i <= 4; i++) {
+        var wines = await scrapePage(i);
+        allWines.push.apply(allWines, wines);
+    }
+    return allWines;
+}
 
-    console.log("Scraping wine.com...");
-    axios.get("https://www.wine.com/list/wine/california/7155-106870")
+function scrapePage(pageNumber) {
+
+    console.log("Scraping wine.com page " + pageNumber + "...");
+    var url = "https://www.wine.com/list/wine/california/7155-106870/" + pageNumber;
+    return axios.get(url)
         .then((response) => {
             console.log("Received " + response.status + " " + response.statusText);
             const html = response.data;
@@ -57,11 +67,11 @@ function scrape(callback) {
                 });
             }
 
-            callback(scrapedWines);
+            return scrapedWines;
 
         });
 };
 
 module.exports = {
-    scrape: scrape
+    scrapeAll: scrapeAll
 };

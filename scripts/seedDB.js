@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 const db = require("../models");
-const winescrape = require("../winescrape");
+const winescrape = require("./winescrape");
 
 // Read environment variables from .env
 // Please make sure you have a ".env" file in the Fantastic4 folder

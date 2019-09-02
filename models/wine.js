@@ -14,6 +14,7 @@ const pictureSchema = new Schema({
 const wineSchema = new Schema({
   name: String,
   region: String,
+  color: String,
   nested_region: String,
   varietal: String,
   alcohol_percent: Number,

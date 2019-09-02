@@ -7,17 +7,28 @@ const cheerio = require("cheerio");
 
 async function scrapeAll() {
     var allWines = [];
-    for (var i = 1; i <= 4; i++) {
-        var wines = await scrapePage(i);
-        allWines.push.apply(allWines, wines);
+    var colors = ["red", "white", "rose", "sparkling"];
+    for (var c = 0; c < colors.length; c++) {
+        var color = colors[c];
+        for (var i = 1; i <= 4; i++) {
+            var wines = await scrapePage(color, i);
+            allWines.push.apply(allWines, wines);
+        }
     }
     return allWines;
 }
 
-function scrapePage(pageNumber) {
+var urlsByColor = {
+    red: "https://www.wine.com/list/wine/california/red-wine/7155-106870-124/",
+    white: "https://www.wine.com/list/wine/california/white-wine/7155-106870-125/",
+    rose: "https://www.wine.com/list/wine/california/rose-wine/7155-106870-126/",
+    sparkling: "https://www.wine.com/list/wine/california/champagne-and-sparkling/7155-106870-123/"
+}
 
-    console.log("Scraping wine.com page " + pageNumber + "...");
-    var url = "https://www.wine.com/list/wine/california/7155-106870/" + pageNumber;
+function scrapePage(color, pageNumber) {
+
+    console.log("Scraping wine.com for " + color + " wines,  page " + pageNumber + "...");
+    var url = urlsByColor[color] + pageNumber;
     return axios.get(url)
         .then((response) => {
             console.log("Received " + response.status + " " + response.statusText);
@@ -63,7 +74,8 @@ function scrapePage(pageNumber) {
                     shortDescription: wine.catalogModel.shortDescription,
                     longDescription: wine.catalogModel.longDescription,
                     stock: wine.catalogModel.stock,
-                    pictures: wine.productMediaModel.medias
+                    pictures: wine.productMediaModel.medias,
+                    color: color
                 });
             }
 

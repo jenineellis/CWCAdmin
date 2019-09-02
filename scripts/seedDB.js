@@ -2,19 +2,20 @@
 
 const mongoose = require("mongoose");
 const db = require("../models");
-const winescrape = require("../winescrape");
+const winescrape = require("./winescrape");
 
 // Read environment variables from .env
 // Please make sure you have a ".env" file in the Fantastic4 folder
 require('dotenv').config()
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
-winescrape.scrape((wineSeed) => {
+winescrape.scrapeAll()
+  .then((wineSeed) => {
   // wineSeed is an array of wines obtained from scraping wine.com
   db.Wine
-    .remove({})
+    .deleteMany({})
     .then(() => db.Wine.collection.insertMany(wineSeed))
     .then(data => {
       console.log(data.result.n + " records inserted!");

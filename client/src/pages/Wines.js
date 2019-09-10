@@ -2,7 +2,6 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import API from "../utils/API";
 
-import "./wines.css";
 
 class Wines extends React.Component {
 
@@ -76,11 +75,11 @@ class Wines extends React.Component {
                     {this.state.wines.length > 0 ?
                         this.state.wines.map((wine) => (
                             <Card>
-                                <Card.Img variant="top" src={wine.pictures[0].base_url + wine.pictures[0].public_id}></Card.Img>
                                 <Card.Body>
                                     <Card.Title>{wine.name}</Card.Title>
+                                    <img height="300" src={"https://www.wine.com/product/images/h_300,c_fit,q_auto:good,fl_progressive/" + wine.pictures[0].public_id + ".jpg"} />
                                     <Card.Text>
-                                        {wine.longDescription}
+                                        <div dangerouslySetInnerHTML={{ __html: wine.longDescription }}></div>
                                     </Card.Text>
                                 </Card.Body>
                             </Card>

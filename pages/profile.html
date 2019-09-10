@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>User Profile</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="styles/bootstrap-reset.css">
+        <link rel="stylesheet" href="styles/profile.css">
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <h4>Create a new account. We'll make recommendations based on your taste!</h4>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <h5>Contact information</h5>
+                        <hr>
+                        <!-- contact info form -->
+                        <form action="/action_page.php" id="contactInfo">
+                            <div class="form-group">
+                                <label for="user">Username:</label>
+                                <input type="text" class="form-control" id="user" placeholder="Enter username"
+                                    name="user" required>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                    name="pswd" required>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="firstName" class="mb-2 mr-sm-2">First Name:</label>
+                                <input type="text" class="form-control mb-2 mr-sm-2" id="firstName"
+                                    placeholder="Enter first name" name="firstName" required>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="mb-2 mr-sm-2">Last Name:</label>
+                                <input type="text" class="form-control mb-2 mr-sm-2" id="lastName"
+                                    placeholder="Enter last name" name="lastName" required>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address1" class="mb-2 mr-sm-2">Address:</label>
+                                <input type="text" class="form-control mb-2 mr-sm-2" id="address1"
+                                    placeholder="Street address 1" name="address1" required>
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback"></div>
+                                <input type="text" class="form-control mb-2 mr-sm-2" id="email2"
+                                    placeholder="(Optional)" name="address2">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <label for="city" class="mb-2 mr-sm-2">City:</label>
+                                    <input type="text" class="form-control mb-2 mr-sm-2" id="city" placeholder="City"
+                                        name="city">
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label for="state" class="mb-2 mr-sm-2">State:</label>
+                                    <input type="text" class="form-control mb-2 mr-sm-2" id="state"
+                                        placeholder="picker would be A+" name="state">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="row" id="preferences">
+                        <h5>Taste Preferences</h5>
+                        <hr>
+                    </div>
+                    <!-- preferences form -->
+                    <form action="/action_page.php">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="acidic">
+                                    <label class="custom-control-label" for="customCheck">Acidic</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="balanced">
+                                    <label class="custom-control-label" for="customCheck">Balanced</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="bakingSpices">
+                                    <label class="custom-control-label" for="customCheck">Baking Spices</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="blackPepper">
+                                    <label class="custom-control-label" for="customCheck">Black Pepper</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="blueberry">
+                                    <label class="custom-control-label" for="customCheck">Blueberry</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="buttery">
+                                    <label class="custom-control-label" for="customCheck">Buttery</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="cedar">
+                                    <label class="custom-control-label" for="customCheck">Cedar</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="citrus">
+                                    <label class="custom-control-label" for="customCheck">Citrus Fruits: Grapefruit,
+                                        Lemon, Lime, Orange</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="chewy">
+                                    <label class="custom-control-label" for="customCheck">Chewy</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="chocolaty">
+                                    <label class="custom-control-label" for="customCheck">Chocolaty</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="coarse">
+                                    <label class="custom-control-label" for="customCheck">Coarse</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="complex">
+                                    <label class="custom-control-label" for="customCheck">Complex</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="concentrated">
+                                    <label class="custom-control-label" for="customCheck">Concentrated</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="creosote">
+                                    <label class="custom-control-label" for="customCheck">Creosote</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="crisp">
+                                    <label class="custom-control-label" for="customCheck">Crisp</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="deep">
+                                    <label class="custom-control-label" for="customCheck">Deep</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="dense">
+                                    <label class="custom-control-label" for="customCheck">Dense</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="dry">
+                                    <label class="custom-control-label" for="customCheck">Dry</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="earthy">
+                                    <label class="custom-control-label" for="customCheck">Earthy</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="elegant">
+                                    <label class="custom-control-label" for="customCheck">Elegant</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="ethereal">
+                                    <label class="custom-control-label" for="customCheck">Ethereal</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="expressive">
+                                    <label class="custom-control-label" for="customCheck">Expressive</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="fat">
+                                    <label class="custom-control-label" for="customCheck">Fat</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="finesse">
+                                    <label class="custom-control-label" for="customCheck">Finesse</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="firm">
+                                    <label class="custom-control-label" for="customCheck">Firm</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="flora;">
+                                    <label class="custom-control-label" for="customCheck">Floral: Geranium, Lavender,
+                                        Lily, Rose, Violet, White Flowers
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="forward">
+                                    <label class="custom-control-label" for="customCheck">Forward</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="fresh">
+                                    <label class="custom-control-label" for="customCheck">Fresh</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="full">
+                                    <label class="custom-control-label" for="customCheck">Full</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="green">
+                                    <label class="custom-control-label" for="customCheck">Green: Grassy, Vegetal</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="herbal">
+                                    <label class="custom-control-label" for="customCheck">Herbal</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="hot">
+                                    <label class="custom-control-label" for="customCheck">Hot</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="intense">
+                                    <label class="custom-control-label" for="customCheck">Intense</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="jam">
+                                    <label class="custom-control-label" for="customCheck">Jam</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="juicy">
+                                    <label class="custom-control-label" for="customCheck">Juicy</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="layered">
+                                    <label class="custom-control-label" for="customCheck">Layered</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="lean">
+                                    <label class="custom-control-label" for="customCheck">Lean</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="leather">
+                                    <label class="custom-control-label" for="customCheck">Leather</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="light">
+                                    <label class="custom-control-label" for="customCheck">Light</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="lush">
+                                    <label class="custom-control-label" for="customCheck">Lush</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="minerality">
+                                    <label class="custom-control-label" for="customCheck">Minerality</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="mocha">
+                                    <label class="custom-control-label" for="customCheck">Mocha</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="oaky">
+                                    <label class="custom-control-label" for="customCheck">Oaky</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="orchardFruit">
+                                    <label class="custom-control-label" for="customCheck">Orchard Fruits: Almond,
+                                        Apple, Apricot, Nectarine, Peach, Pear, Plum
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="opulent">
+                                    <label class="custom-control-label" for="customCheck">Opulent</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="petrol">
+                                    <label class="custom-control-label" for="customCheck">Petrol</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="powerful">
+                                    <label class="custom-control-label" for="customCheck">Powerful</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="quince">
+                                    <label class="custom-control-label" for="customCheck">Quince</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="redFruit">
+                                    <label class="custom-control-label" for="customCheck">Red Fruits: Bing Cherry,
+                                        Cranberry, Currant, Pomegranate, Raspberry, Strawberry
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="refined">
+                                    <label class="custom-control-label" for="customCheck">Refined</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="rich">
+                                    <label class="custom-control-label" for="customCheck">Rich</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="nuts">
+                                    <label class="custom-control-label" for="customCheck">Roasted Nuts</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="rough">
+                                    <label class="custom-control-label" for="customCheck">Rough</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="Round">
+                                    <label class="custom-control-label" for="customCheck">Round</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="silky">
+                                    <label class="custom-control-label" for="customCheck">Silky</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="smoke">
+                                    <label class="custom-control-label" for="customCheck">Smoke</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="smooth">
+                                    <label class="custom-control-label" for="customCheck">Smooth</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="soft">
+                                    <label class="custom-control-label" for="customCheck">Soft</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="spicy">
+                                    <label class="custom-control-label" for="customCheck">Spicy</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="supple">
+                                    <label class="custom-control-label" for="customCheck">Supple</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="sweet">
+                                    <label class="custom-control-label" for="customCheck">Sweet</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="tannic">
+                                    <label class="custom-control-label" for="customCheck">Tannic
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="tart">
+                                    <label class="custom-control-label" for="customCheck">Tart</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="tingly">
+                                    <label class="custom-control-label" for="customCheck">Tingly</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="toasty">
+                                    <label class="custom-control-label" for="customCheck">Toasty: Autumn Leaves, Freshly
+                                        Baked Bread, Pie Crust</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="tropicalFruit">
+                                    <label class="custom-control-label" for="customCheck">Tropical Fruits: Coconut,
+                                        Passionfruit, Vanilla</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="velvety">
+                                    <label class="custom-control-label" for="customCheck">Velvety
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="yeasty">
+                                    <label class="custom-control-label" for="customCheck">Yeasty</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember" required> I agree to the
+                    Terms and Services of using this web site.
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback">Check this checkbox to continue.</div>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </body>
+
+</html>

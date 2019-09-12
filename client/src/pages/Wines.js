@@ -10,10 +10,10 @@ class Wines extends React.Component {
     };
 
     componentDidMount() {
-        this.loadBooks();
+        this.loadWines();
     }
 
-    loadBooks = () => {
+    loadWines = () => {
         API.getWines()
           .then(res =>
             this.setState({ wines: res.data })

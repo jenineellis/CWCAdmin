@@ -70,12 +70,21 @@ function scrapePage(color, pageNumber) {
                     alcohol_percent: wine.catalogModel.alcoholPercent ? parseInt(wine.catalogModel.alcoholPercent) : null,
                     vintage: wine.catalogModel.vintage,
                     price: parseInt(wine.catalogModel.regularPrice.whole) + parseInt(wine.catalogModel.regularPrice.fractional)/100,
-                    vineyard: wine.catalogModel.vineyard.fullName,
+                    vineyard: {
+                        id: wine.catalogModel.vineyard.id,
+                        fullName: wine.catalogModel.vineyard.fullName,
+                        longDescription: wine.catalogModel.vineyard.longDescription,
+                        region: wine.catalogModel.vineyard.region,
+                        imageUrl: wine.catalogModel.vineyard.imageUrl,
+                        geoLat:wine.catalogModel.vineyard.geoLat,
+                        geoLong: wine.catalogModel.vineyard.geoLong
+                    },
                     shortDescription: wine.catalogModel.shortDescription,
                     longDescription: wine.catalogModel.longDescription,
                     stock: wine.catalogModel.stock,
                     pictures: wine.productMediaModel.medias,
-                    color: color
+                    color: color,
+                    volume: wine.catalogModel.volume
                 });
             }
 

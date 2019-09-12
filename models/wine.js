@@ -11,6 +11,16 @@ const pictureSchema = new Schema({
 });
 
 
+const vineyardSchema = new Schema({
+  fullName: String,
+  longDescription: String,
+  region: String,
+  imageUrl: String,
+  geoLat: Number,
+  geoLong: Number
+});
+
+
 const wineSchema = new Schema({
   name: String,
   region: String,
@@ -20,11 +30,12 @@ const wineSchema = new Schema({
   alcohol_percent: Number,
   vintage: Number,
   price: Number,
-  vineyard: String,
+  vineyard: vineyardSchema,
   stock: Number,
   shortDescription: String,
   longDescription: String,
-  pictures: [pictureSchema]
+  pictures: [pictureSchema],
+  volume: Number
 });
 
 const Wine = mongoose.model("Wine", wineSchema);

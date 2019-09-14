@@ -5,6 +5,13 @@ body {
     width: 100%
 }
 
+div#preferences {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
 label {
     font-size: 12px;
     text-align: left;
@@ -18,6 +25,16 @@ input {
     color: grey;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 8 15 0;
+    padding: 10px;
+    width: 80%;
+    height: auto;
+    text-align: left
+}
+
+
+div.custon-checkbox {
+    -moz-box-align: baseline;
+    text-align: left
 }
 
 .form-row {
@@ -25,9 +42,9 @@ input {
     padding-bottom: 15px;
 }
 
-.col-sm-3 {
-    width: 25%;
-    margin: 20px;
+.col-sm-6 {
+    width: 40%;
+    margin: 5%;
     padding: 0;
 }
 
@@ -36,4 +53,14 @@ input {
     padding-left: 15px;
     line-height: 15px;
 
+}
+
+.custom-control-input {
+    position: relative;
+    padding-left: 15px;
+    line-height: 15px;
+}
+
+.tab-content {
+    text-align: left;
 }

@@ -54,7 +54,17 @@ a:hover {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#CWClogo {
+    position: absolute;
+    width: auto;
+    top: 14.5%;
+    left: 2%;
+    z-index: 3;
+    float: left;
+}
+
 #container {
+    float: right;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.7);
     width: 70%;

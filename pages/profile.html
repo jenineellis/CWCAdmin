@@ -18,38 +18,42 @@
         <div class="container">
             <div class="row text-enter">
                 <h4>Create My Account</h4>
-                <h5>If you fill out Preferences, we'll make recommendations based on your choices!</h5>
+                <h5>There are four steps to make a complete profile, but the first tab (below) is the most important if
+                    you want to login as a registered user. If you fill out Preferences, we'll make recommendations
+                    based on your choices!</h5>
                 <hr>
             </div>
             <div class="row">
 
-                <!-- user form -->
+                <!-- ACCOUNT FORM-->
                 <div class="col-sm-12">
                     <div class="row">
 
                         <form action="/action_page.php">
-                            <div class="row" id="preferences">
+                            <div class="row" id="account">
                                 <div class="col-sm-12">
 
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a data-toggle="tab" href="#account"><strong>User
+                                        <li class="active"><a data-toggle="tab" href="#user"><strong>1: User
                                                     Information</strong></a>
                                         </li>
-                                        <li><a data-toggle="tab" href="#flavors"><strong>Preferences:
+                                        <li><a data-toggle="tab" href="#flavors"><strong>2: Preferences -
                                                     Flavors</strong></a>
                                         </li>
 
-                                        <li><a data-toggle="tab" href="#character"><strong>Preferences:
+                                        <li><a data-toggle="tab" href="#character"><strong>3. Preferences -
                                                     Character</strong></a></li>
-                                        <li><a data-toggle="tab" href="#weight"><strong>Preferences: Weight</strong></a>
+                                        <li><a data-toggle="tab" href="#weight"><strong>4. Preferences -
+                                                    Weight</strong></a>
                                         </li>
                                     </ul>
 
                                     <div class="tab-content">
-                                        <div id="account" class="tab-pane fade in active">
 
-                                            <!-- contact info form -->
-                                            <form action="/action_page.php" id="account">
+                                        <!-- contact info form -->
+                                        <div id="user" class="tab-pane fade in active">
+
+                                            <div>
                                                 <h5>Your account</h5>
                                                 <hr>
                                                 <div class="row">
@@ -71,7 +75,7 @@
                                                 </div>
 
                                                 <!-- NAME -->
-                                                <div class="row">
+                                                <div class="row" id="name">
 
                                                     <!-- First name -->
                                                     <div class="form-group col-sm-5">
@@ -105,7 +109,7 @@
                                                 </div>
 
                                                 <!-- ADDRESS -->
-                                                <div class="row">
+                                                <div class="row" id="address">
 
                                                     <!-- Street -->
                                                     <div class="form-group col-sm-12">
@@ -139,7 +143,7 @@
 
                                                 </div>
 
-                                            </form>
+                                            </div>
 
                                         </div>
 
@@ -200,15 +204,15 @@
                                                 </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="leather">
-                                                    <label class="custom-control-label"
-                                                        for="customCheck">Leather</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="minerality">
                                                     <label class="custom-control-label"
                                                         for="customCheck">Minerality</label>
+                                                </div>
+
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="custom-control-input" id="leather">
+                                                    <label class="custom-control-label"
+                                                        for="customCheck">Leather</label>
                                                 </div>
 
                                             </div>
@@ -275,30 +279,15 @@
                                         <div id="character" class="tab-pane fade">
                                             <p>Please indicate the qualities and characteristics of the mouth-feel
                                                 you enjoy
-                                                in wine.</p>
+                                                in wine.
+                                            </p>
 
                                             <div class="row col-sm-6">
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="acidic">
-                                                    <label class="custom-control-label" for="customCheck">Acidic</label>
-                                                </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="balanced">
                                                     <label class="custom-control-label"
                                                         for="customCheck">Balanced</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="buttery">
-                                                    <label class="custom-control-label"
-                                                        for="customCheck">Buttery</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="coarse">
-                                                    <label class="custom-control-label" for="customCheck">Coarse</label>
                                                 </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
@@ -317,12 +306,6 @@
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="chewy">
                                                     <label class="custom-control-label" for="customCheck">Chewy</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="chocolaty">
-                                                    <label class="custom-control-label"
-                                                        for="customCheck">Chocolaty</label>
                                                 </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
@@ -354,17 +337,6 @@
                                                 </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="hot">
-                                                    <label class="custom-control-label" for="customCheck">Hot</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="intense">
-                                                    <label class="custom-control-label"
-                                                        for="customCheck">Intense</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="juicy">
                                                     <label class="custom-control-label" for="customCheck">Juicy</label>
                                                 </div>
@@ -390,18 +362,8 @@
                                                 </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="rough">
-                                                    <label class="custom-control-label" for="customCheck">Rough</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="Round">
                                                     <label class="custom-control-label" for="customCheck">Round</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="silky">
-                                                    <label class="custom-control-label" for="customCheck">Silky</label>
                                                 </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
@@ -422,28 +384,6 @@
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="supple">
                                                     <label class="custom-control-label" for="customCheck">Supple</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="sweet">
-                                                    <label class="custom-control-label" for="customCheck">Sweet</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="tannic">
-                                                    <label class="custom-control-label" for="customCheck">Tannic
-                                                    </label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="tart">
-                                                    <label class="custom-control-label" for="customCheck">Tart</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="tingly">
-                                                    <label class="custom-control-label" for="customCheck">Tingly</label>
-
                                                 </div>
 
                                                 <div class="custom-control custom-checkbox mb-3">
@@ -577,39 +517,48 @@
 
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
+
+                            <br>
+                            <hr>
+
+                            <!-- TERMS/CONDITIONS AGREEMENT -->
+                            <div class="row text-center">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="remember" required> I
+                                            agree to the
+                                            <a href="#">Terms & Services</a> of using this web site. (Must be checked to
+                                            continue using this site.)
+                                            <div class="valid-feedback"></div>
+                                            <div class="invalid-feedback">
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CHOICE TO CREAT ACCOUNT OR USE AS GUEST -->
+                            <div class="row text-center">
+                                <div class="col-sm-12">
+
+                                    <!-- SAVES ACCOUNT REGARDLESS OF DEGREE OF COMPLETION -->
+                                    <button type="submit" class="btn btn-primary">Create My Account</button>
+                                    <!-- same as submitting profile only -->
+                                    <button type="submit" class="btn btn-info">Use As a Guest (Don't Save)</button>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- agree/submit -->
-            <br>
-            <hr>
 
-            <div class="row text-center">
-                <div class="col-sm-12">
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember" required> I agree to the
-                            Terms and Services of using this web site.
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">Check this checkbox to continue.</div>
-                        </label>
-                    </div>
-
-                    <div class="row">
-                        <!-- saves profile info only -->
-                        <button type="submit" class="btn btn-primary">Submit and Save My User Information</button>
-                        <!-- saves profile and preferences -->
-                        <button type="submit" class="btn btn-primary">Submit and Save My Preferences</button>
-                        <!-- same as submitting profile only -->
-                        <button type="submit" class="btn btn-info">Complete My Preferences Another Time</button>
-                    </div>
-                </div>
-            </div>
         </div>
 
 

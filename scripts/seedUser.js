@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
-const db = require("../models");
+const mongoose = require('mongoose');
+const db = require('../models');
 
 // This file deletes the existing users and creates new ones
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/CDCDB", { useNewUrlParser: true }
+  'mongodb://localhost/CDCDB', { useNewUrlParser: true }
 );
 
 const seedUser = [

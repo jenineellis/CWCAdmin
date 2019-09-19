@@ -4,7 +4,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <a className="navbar-brand" href="/">
-        Vino Tantum
+        CWC
       </a>
 
       <ul className="navbar-nav mr-auto">

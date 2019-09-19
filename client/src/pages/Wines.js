@@ -7,7 +7,8 @@ class Wines extends React.Component {
 
     state = {
         wines: [],
-        color: ""
+        color: "",
+        regions: []
     };
 
     componentDidMount() {
@@ -24,6 +25,9 @@ class Wines extends React.Component {
             this.setState({ wines: res.data })
           )
           .catch(err => console.log(err));
+
+        API.getWineRegions(filter)
+            .then(res => this.setState({ regions: res.data }))
       };
 
     handleColorChange = (event) => {
@@ -36,6 +40,8 @@ class Wines extends React.Component {
             <div>
 
                 <form>
+
+                    {/* Color selector */}
                     <select value={this.state.color} onChange={this.handleColorChange}>
                         <option value="">Color</option>
                         <option value="red">Red</option>
@@ -43,12 +49,15 @@ class Wines extends React.Component {
                         <option value="rose">Rosé</option>
                         <option value="sparkling">Sparkling</option>
                     </select>
+
+                    {/* Region selector */}
                     <select>
                         <option selected>Region</option>
-                        <option value="1">Carneros</option>
-                        <option value="2">Howell Mountain</option>
-                        <option value="3">Oakville</option>
+                        {this.state.regions.map(region => (
+                            <option key={region._id} value={region._id}>{region._id} ({region.count})</option>
+                        ))}
                     </select>
+
                     <select>
                         <option selected>Varietal</option>
                         <option value="1">Cabernet Sauvignon</option>

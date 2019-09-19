@@ -5,6 +5,10 @@ const winesController = require("../../controllers/winesController");
 router.route("/")
   .get(winesController.findAll);
 
+// Matches with "/api/wines/regions"
+router.route("/regions")
+  .get(winesController.findRegions);
+
 
 // Matches with "/api/wines/:id"
 router

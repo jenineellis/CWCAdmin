@@ -12,7 +12,8 @@ class Wines extends React.Component {
 
         color: "",      // User's color choice
         region: "",     // User's region choice
-        varietal: ""    // User's varietal choice
+        varietal: "",   // User's varietal choice
+        price: ""       // User's price choice (high/medium/low)
     };
 
     componentDidMount() {
@@ -27,6 +28,8 @@ class Wines extends React.Component {
             filter.region = this.state.region;
         if (this.state.varietal)
             filter.varietal = this.state.varietal;
+        if (this.state.price)
+            filter.price = this.state.price;
 
         API.getWines(filter)
           .then(res => this.setState({ wines: res.data }) )
@@ -54,6 +57,11 @@ class Wines extends React.Component {
     handleVarietalChange = (event) => {
         var varietalValue = event.target.value;
         this.setState({ varietal: varietalValue }, () => this.loadWines());
+    }
+
+    handlePriceChange = (event) => {
+        var priceValue = event.target.value;
+        this.setState({ price: priceValue }, () => this.loadWines());
     }
     
     render() {
@@ -87,11 +95,12 @@ class Wines extends React.Component {
                         ))}
                     </select>
 
-                    <select>
-                        <option selected>Price Range</option>
-                        <option value="1">0-$25</option>
-                        <option value="2">$25.01-$49.99</option>
-                        <option value="3">$50+</option>
+                    {/* Price selector */}
+                    <select value={this.state.price} onChange={this.handlePriceChange}>
+                        <option value="">Price Range</option>
+                        <option value="low">Under $25</option>
+                        <option value="medium">$25-$50</option>
+                        <option value="high">Above $50</option>
                     </select>
                 </form>
 
@@ -104,6 +113,7 @@ class Wines extends React.Component {
                                     <img height="300" src={"https://www.wine.com/product/images/h_300,c_fit,q_auto:good,fl_progressive/" + wine.pictures[0].public_id + ".jpg"} />
                                     <Card.Text>
                                         <div dangerouslySetInnerHTML={{ __html: wine.longDescription }}></div>
+                                        <div>{wine.vineyard.fullName} - {wine.nested_region} - {wine.varietal} - ${wine.price}</div>
                                     </Card.Text>
                                 </Card.Body>
                             </Card>

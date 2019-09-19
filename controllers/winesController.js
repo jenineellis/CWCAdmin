@@ -10,6 +10,19 @@ function getWinesFilter(req) {
     dbFilter.nested_region = req.query.region;
   if (req.query.varietal)
     dbFilter.varietal = req.query.varietal;
+  if (req.query.price) {
+    switch (req.query.price) {
+      case "low":
+        dbFilter.price = { $lt: 25 };
+        break;
+      case "medium":
+        dbFilter.price = { $gte: 25, $lt: 50 };
+        break;
+      case "high":
+        dbFilter.price = { $gt: 50 };
+        break;
+    }
+  }
 
   return dbFilter;
 }

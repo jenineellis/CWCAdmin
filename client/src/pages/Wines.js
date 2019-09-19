@@ -6,7 +6,8 @@ import API from "../utils/API";
 class Wines extends React.Component {
 
     state = {
-        wines: []
+        wines: [],
+        color: ""
     };
 
     componentDidMount() {
@@ -14,18 +15,34 @@ class Wines extends React.Component {
     }
 
     loadWines = () => {
-        API.getWines()
+        var filter = {};
+        if (this.state.color)
+            filter.color = this.state.color;
+
+        API.getWines(filter)
           .then(res =>
             this.setState({ wines: res.data })
           )
           .catch(err => console.log(err));
       };
+
+    handleColorChange = (event) => {
+        var colorValue = event.target.value;
+        this.setState({ color: colorValue }, () => this.loadWines());
+    };
     
     render() {
         return (
             <div>
 
                 <form>
+                    <select value={this.state.color} onChange={this.handleColorChange}>
+                        <option value="">Color</option>
+                        <option value="red">Red</option>
+                        <option value="white">White</option>
+                        <option value="rose">Rosé</option>
+                        <option value="sparkling">Sparkling</option>
+                    </select>
                     <select>
                         <option selected>Vineyard</option>
                         <option value="1">Caymus</option>
@@ -61,13 +78,6 @@ class Wines extends React.Component {
                         <option value="1">Cabernet Sauvignon</option>
                         <option value="2">Merlot</option>
                         <option value="3">Petit Syrah</option>
-                    </select>
-                    <select>
-                        <option selected>Color</option>
-                        <option value="1">Red</option>
-                        <option value="2">White</option>
-                        <option value="3">Rosé</option>
-                        <option value="4">Sparkling</option>
                     </select>
                 </form>
 

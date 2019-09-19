@@ -8,9 +8,11 @@ class Wines extends React.Component {
     state = {
         wines: [],      // List of wines displayed in search results
         regions: [],    // List of regions displayed in dropdown
+        varietals: [],  // List of varietals displayed in dropdown
 
         color: "",      // User's color choice
-        region: ""      // User's region choice
+        region: "",     // User's region choice
+        varietal: ""    // User's varietal choice
     };
 
     componentDidMount() {
@@ -23,15 +25,20 @@ class Wines extends React.Component {
             filter.color = this.state.color;
         if (this.state.region)
             filter.region = this.state.region;
+        if (this.state.varietal)
+            filter.varietal = this.state.varietal;
 
         API.getWines(filter)
-          .then(res =>
-            this.setState({ wines: res.data })
-          )
+          .then(res => this.setState({ wines: res.data }) )
           .catch(err => console.log(err));
 
         API.getWineRegions(filter)
             .then(res => this.setState({ regions: res.data }))
+            .catch(err => console.log(err));
+
+        API.getWineVarietals(filter)
+            .then(res => this.setState({ varietals: res.data }))
+            .catch(err => console.log(err));
       };
 
     handleColorChange = (event) => {
@@ -42,6 +49,11 @@ class Wines extends React.Component {
     handleRegionChange = (event) => {
         var regionValue = event.target.value;
         this.setState({ region: regionValue }, () => this.loadWines());
+    }
+    
+    handleVarietalChange = (event) => {
+        var varietalValue = event.target.value;
+        this.setState({ varietal: varietalValue }, () => this.loadWines());
     }
     
     render() {
@@ -67,12 +79,14 @@ class Wines extends React.Component {
                         ))}
                     </select>
 
-                    <select>
-                        <option selected>Varietal</option>
-                        <option value="1">Cabernet Sauvignon</option>
-                        <option value="2">Merlot</option>
-                        <option value="3">Petit Syrah</option>
+                    {/* Varietal selector */}
+                    <select value={this.state.varietal} onChange={this.handleVarietalChange}>
+                        <option value="">Varietal</option>
+                        {this.state.varietals.map(varietal => (
+                            <option key={varietal._id} value={varietal._id}>{varietal._id} ({varietal.count})</option>
+                        ))}
                     </select>
+
                     <select>
                         <option selected>Price Range</option>
                         <option value="1">0-$25</option>

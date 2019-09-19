@@ -28,5 +28,11 @@ export default {
     return axios.get("/api/wines/regions", {
       params: filter
     });
+  },
+
+  getWineVarietals: function (filter) {
+    return axios.get("/api/wines/varietals", {
+      params: filter
+    });
   }
 };

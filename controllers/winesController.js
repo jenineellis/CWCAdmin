@@ -8,6 +8,8 @@ function getWinesFilter(req) {
     dbFilter.color = req.query.color;
   if (req.query.region)
     dbFilter.nested_region = req.query.region;
+  if (req.query.varietal)
+    dbFilter.varietal = req.query.varietal;
 
   return dbFilter;
 }
@@ -43,6 +45,19 @@ module.exports = {
         { $sort: { count: -1 } } 
       ])
       .then(regions => res.json(regions))
+      .catch(err => res.status(500).json(err));
+  },
+
+  findVarietals: function(req, res) {
+    var filter = getWinesFilter(req);
+
+    db.Wine
+      .aggregate([
+        { $match: filter }, 
+        { $group: {_id: "$varietal", count: { $sum: 1 } } }, 
+        { $sort: { count: -1 } } 
+      ])
+      .then(varietals => res.json(varietals))
       .catch(err => res.status(500).json(err));
   }
 

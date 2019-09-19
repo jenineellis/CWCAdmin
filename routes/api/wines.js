@@ -9,6 +9,10 @@ router.route("/")
 router.route("/regions")
   .get(winesController.findRegions);
 
+// Matches with "/api/wines/varietals"
+router.route("/varietals")
+  .get(winesController.findVarietals);
+
 
 // Matches with "/api/wines/:id"
 router

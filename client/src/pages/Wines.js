@@ -63,6 +63,15 @@ class Wines extends React.Component {
         var priceValue = event.target.value;
         this.setState({ price: priceValue }, () => this.loadWines());
     }
+
+    handleClearAll = (event) => {
+        this.setState({
+            color: "",
+            region: "",
+            varietal: "",
+            price: ""
+        }, () => this.loadWines());
+    }
     
     render() {
         return (
@@ -102,6 +111,8 @@ class Wines extends React.Component {
                         <option value="medium">$25-$50</option>
                         <option value="high">Above $50</option>
                     </select>
+
+                    <button class="btn" onClick={this.handleClearAll}>Clear all filters</button>
                 </form>
 
                 <div id="wineResultsContainer">

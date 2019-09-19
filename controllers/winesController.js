@@ -1,13 +1,15 @@
 const db = require("../models");
 
 function getWinesFilter(req) {
-  var filter = {};
+  var dbFilter = {};
 
   // req.query contains all the query string parameters;
   if (req.query.color)
-  filter.color = req.query.color;
+    dbFilter.color = req.query.color;
+  if (req.query.region)
+    dbFilter.nested_region = req.query.region;
 
-  return filter;
+  return dbFilter;
 }
 
 

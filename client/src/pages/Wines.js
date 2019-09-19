@@ -6,9 +6,11 @@ import API from "../utils/API";
 class Wines extends React.Component {
 
     state = {
-        wines: [],
-        color: "",
-        regions: []
+        wines: [],      // List of wines displayed in search results
+        regions: [],    // List of regions displayed in dropdown
+
+        color: "",      // User's color choice
+        region: ""      // User's region choice
     };
 
     componentDidMount() {
@@ -19,6 +21,8 @@ class Wines extends React.Component {
         var filter = {};
         if (this.state.color)
             filter.color = this.state.color;
+        if (this.state.region)
+            filter.region = this.state.region;
 
         API.getWines(filter)
           .then(res =>
@@ -34,6 +38,11 @@ class Wines extends React.Component {
         var colorValue = event.target.value;
         this.setState({ color: colorValue }, () => this.loadWines());
     };
+
+    handleRegionChange = (event) => {
+        var regionValue = event.target.value;
+        this.setState({ region: regionValue }, () => this.loadWines());
+    }
     
     render() {
         return (
@@ -51,8 +60,8 @@ class Wines extends React.Component {
                     </select>
 
                     {/* Region selector */}
-                    <select>
-                        <option selected>Region</option>
+                    <select value={this.state.region} onChange={this.handleRegionChange}>
+                        <option value="">Region</option>
                         {this.state.regions.map(region => (
                             <option key={region._id} value={region._id}>{region._id} ({region.count})</option>
                         ))}
@@ -75,7 +84,7 @@ class Wines extends React.Component {
                 <div id="wineResultsContainer">
                     {this.state.wines.length > 0 ?
                         this.state.wines.map((wine) => (
-                            <Card>
+                            <Card key={wine._id}>
                                 <Card.Body>
                                     <Card.Title>{wine.name}</Card.Title>
                                     <img height="300" src={"https://www.wine.com/product/images/h_300,c_fit,q_auto:good,fl_progressive/" + wine.pictures[0].public_id + ".jpg"} />

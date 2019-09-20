@@ -6,7 +6,7 @@ function Card(props) {
         <div className="card">
             <div className="row no-gutters">
                 <div className="col-sm-3">
-                    <img src={props.picture} className="card-img rounded mx-auto d-block" alt="wineLabel"></img>
+                    <img src={props.picture} className="card-img" alt="wineLabel"></img>
                 </div>
                 <div className="col-sm-9">
                     <div className="card-body">

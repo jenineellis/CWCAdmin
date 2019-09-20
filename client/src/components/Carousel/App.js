@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import ReactDOM from "react-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import img1 from "./img/sunrise-field.png";
@@ -46,9 +45,7 @@ class App extends Component {
           </div>
         </Carousel>
         <div class="wrapper">
-          <div id="CWClogo">
-            <img src="./img/reverseLogo.png" />
-          </div>
+
 
           <div className="scroll" id="container"></div>
         </div>

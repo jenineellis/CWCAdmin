@@ -51,10 +51,10 @@ a:hover {
 }
 
 #CWClogo {
-    position: absolute;
+    position: fixed;
     width: auto;
     top: 14.5%;
-    left: 2%;
+    left: 33px;
     z-index: 3;
     float: left;
 }
@@ -68,17 +68,15 @@ a:hover {
     position: absolute;
     left: 15%;
     height: 80%;
-    /* right: 15%; */
     top: 50%;
-    /* bottom: 15%; */
     transform: translateY(-50%);
     margin: none;
-    /* z-index: 3; */
 }
+
 
 #root {
     float: right;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgb(255, 255, 255);
     width: 100%;
     margin: none;
     height: calc(100vh - 176px);

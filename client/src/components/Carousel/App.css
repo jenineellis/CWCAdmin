@@ -5,8 +5,9 @@ button {
 
 }
 
-li.slide.selected, li.slide {
-    background-color: none;
+li.slide.selected,
+li.slide {
+    background-color: white;
     padding: 0;
 
 }

@@ -1,0 +1,19 @@
+.login {
+    background-color:#530606;;
+    font-size: 18pt;
+}
+
+.companyName {
+   color: #530606;
+   font-family: cursive;
+   text-align: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #d7dba6;
+}
+
+.card-header:first-child {
+    background-color: #d7dba6;
+    border-radius: 29px;
+}

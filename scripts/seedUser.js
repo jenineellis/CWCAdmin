@@ -15,12 +15,17 @@ const seedUser = [
     userType: "Admin"
   },
   {
-    email: "2@gmail.com",
+    email: "matthew.heimark@gmail.com",
     password: "Test1234",
     userType: "Admin"
   },
   {
-    email: "3@gmail.com",
+    email: "mkskoly@gmail.com",
+    password: "Test1234",
+    userType: "Admin"
+  },
+  {
+    email: "madeleinekemeny@gmail.com",
     password: "Test1234",
     userType: "Admin"
   },
@@ -101,8 +106,7 @@ const seedUser = [
   },
 ];
 
-
-
+//Adding the seed data to the DB. You need to do a node scripts/seedUser.js
 const seedAPI = async () => {
   try {
     const isDelete = await db.User.remove({})

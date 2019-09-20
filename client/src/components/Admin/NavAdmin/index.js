@@ -1,19 +1,22 @@
-import React from "react";
+import React from 'react';
+import { Nav, Navbar, Image, Card } from 'react-bootstrap';
+import './style.css';
 
 function NavAdmin() {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">Admin Portal</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">Dashboard</Nav.Link>
-          <Nav.Link href="#link">Orders</Nav.Link>
-          <Nav.Link href="#link">Users</Nav.Link>
-          <Nav.Link href="#link">Producers</Nav.Link>
+
+    <Navbar className='login'>
+      <Card.Header className='company-info'>
+        <Card.Img className='company-logo' variant="top" src='/images/logo-bw194x100.png' rounded />
+      </Card.Header>
+        <Nav>
+        <Nav.Link className='admin-links' href='/'>Dashboard</Nav.Link>
+          <Nav.Link className='admin-links' href='/orders'>Orders</Nav.Link>
+          <Nav.Link className='admin-links' href='/users'>Users</Nav.Link>
+          <Nav.Link className='admin-links' href='/producers'>Producers</Nav.Link>
         </Nav>
-      </Navbar.Collapse>
     </Navbar>
+
   );
 }
 

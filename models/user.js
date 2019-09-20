@@ -20,7 +20,6 @@ const userSchema = new Schema({
     },
 })
 
-
 userSchema.methods = {
     hashPassword: plainText => {
         return bycrypt.hashSync(plainText, 10)

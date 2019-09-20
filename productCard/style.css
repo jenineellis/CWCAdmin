@@ -1,0 +1,10 @@
+#vineyardName {
+    position: absolute;
+    color: white;
+    top: 220px;
+    left: 30px;
+}
+
+#vineyardImage {
+    position: relative;
+}

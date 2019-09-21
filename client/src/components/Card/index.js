@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 
-function Card(props) {
+function wineCard(props) {
     return (
         <div className="card">
             <div className="row no-gutters">
@@ -34,4 +34,4 @@ function Card(props) {
             )
         }
         
-export default Card;
+export default wineCard;

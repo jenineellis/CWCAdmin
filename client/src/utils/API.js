@@ -18,7 +18,21 @@ export default {
     return axios.post("/api/books", bookData);
   },
 
-  getWines: function () {
-    return axios.get("/api/wines");
+  getWines: function (filter) {
+    return axios.get("/api/wines", {
+      params: filter
+    });
+  },
+
+  getWineRegions: function (filter) {
+    return axios.get("/api/wines/regions", {
+      params: filter
+    });
+  },
+
+  getWineVarietals: function (filter) {
+    return axios.get("/api/wines/varietals", {
+      params: filter
+    });
   }
 };

@@ -9,7 +9,7 @@ const winescrape = require("./winescrape");
 require('dotenv').config()
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/CDCDB", { useNewUrlParser: true });
 
 winescrape.scrapeAll()
   .then((wineSeed) => {

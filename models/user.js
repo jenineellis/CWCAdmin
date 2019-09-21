@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 mongoose.promise = Promise;
-const bycrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
     email: {
@@ -22,10 +22,10 @@ const userSchema = new Schema({
 
 userSchema.methods = {
     hashPassword: plainText => {
-        return bycrypt.hashSync(plainText, 10)
+        return bcrypt.hashSync(plainText, 10)
     },
     checkPassword: function (inputPassword) {
-        return bycrypt.compareSync(inputPassword, this.password);
+        return bcrypt.compareSync(inputPassword, this.password);
     }
 }
 

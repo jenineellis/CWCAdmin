@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bycrypt = require('bcryptjs');
 mongoose.promise = Promise;
+const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
     email: {
@@ -20,6 +20,25 @@ const userSchema = new Schema({
     },
 })
 
+userSchema.methods = {
+    hashPassword: plainText => {
+        return bcrypt.hashSync(plainText, 10)
+    },
+    checkPassword: function (inputPassword) {
+        return bcrypt.compareSync(inputPassword, this.password);
+    }
+}
+
+userSchema.pre('save', function (next) {
+    if (!this.password) {
+        console.log('========= NO PASSWORD PROVIDED =========');
+        next();
+    }
+    else {
+        this.password = this.hashPassword(this.password);
+        next();
+    }
+})
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;

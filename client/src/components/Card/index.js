@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 
-function Card(props) {
+function WineCard(props) {
     return (
         <div className="card">
             <div className="row no-gutters">
@@ -9,7 +9,7 @@ function Card(props) {
                     <img src={props.picture} className="card-img" alt="wineLabel"></img>
                 </div>
                 <div className="col-sm-9">
-                    <div className="card-body">
+                    <div className="card-body" data-id={props.id}>
                         <h5 className="card-title">{props.name}</h5>
                         <p className="card-text">{props.varietal}</p>
                         <p className="card-text">{props.shortDescription}</p>
@@ -34,4 +34,4 @@ function Card(props) {
             )
         }
         
-export default Card;
+export default WineCard;

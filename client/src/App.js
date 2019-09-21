@@ -7,6 +7,7 @@ import Wines from "./pages/Wines";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import tempWinesList from "./pages/tempWinesList";
+import WineDetails from "./pages/WineDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/books/:id" component={Detail} />
           <Route exact path="/wines" component={Wines} />
           <Route exact path="/tempWineList" component={tempWinesList} />
+          <Route exact path="/WineDetails" component={WineDetails} />
           <Route component={NoMatch} />
         </Switch>
       </div>

@@ -34,5 +34,9 @@ export default {
     return axios.get("/api/wines/varietals", {
       params: filter
     });
+  },
+
+  getWine: function (id) {
+    return axios.get("/api/wines/" + id)
   }
 };

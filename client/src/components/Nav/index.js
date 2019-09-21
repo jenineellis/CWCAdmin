@@ -1,43 +1,27 @@
 import React from "react";
+import Login from '../LoginForm/';
 
-function NavAdmin() {
+function Nav(props) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a className="navbar-brand" href="/">
-                ADMIN NAV
-      </a>
+        <div>
+            {/* Modal stuff here */}
+            <div className="modal fade" id="modalLRForm">
+                <Login updateGlobalState={props.updateGlobalState} />
+            </div>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a className="navbar-brand" href="/">
+                </a>
 
-            <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                    <a className="nav-link" href="/user">USER</a>
-                </li>
-            </ul>
-        </nav>
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                        {/* add button portion */}
+                        <a className="nav-link" href="" className="btn btn-rounded btn-lgmy-3" id="index-login" data-toggle="modal"
+                            data-target="#modalLRForm">Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     );
 }
 
-export default NavAdmin;
-
-// WIP
-// import React from 'react';
-// import { Nav, Navbar, ListGroup } from 'react-bootstrap';
-// import './style.css';
-
-// const AdminNav = () => {
-//   return (
-//     <div>
-//       <Navbar className="Navbar Navbar-default Navbar-static-top">
-//         <ListGroup className="Nav nav-pills">
-//           <ListGroup><Nav.Link to='/admin/login' activeName="active" className='admin-dash'>Dashboard</Nav.Link></ListGroup>
-//           <ListGroup><Nav.Link to='/admin' activeName="active" className='admin-dash'>Dashboard</Nav.Link></ListGroup>
-//           <ListGroup><Nav.Link to='/orders' activeName="active" className='admin-orders'>Orders</Nav.Link></ListGroup>
-//           <ListGroup><Nav.Link to='/users' activeName="active" className='admin-users'>Users</Nav.Link></ListGroup>
-//           <ListGroup><Nav.Link to='/producers' activeClassName="active" className='admin-producers'>Producers</Nav.Link></ListGroup>
-//         </ListGroup>
-//       </Navbar>
-//       {this.props.children}
-//     </div>
-//   )
-// }
-
-// export default AdminNav;
+export default Nav;

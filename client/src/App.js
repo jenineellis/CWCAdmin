@@ -7,7 +7,7 @@ import Wines from "./pages/Wines";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import NavAdmin from "./components/Admin/NavAdmin";
-import AdminLogin from './pages/Admin';
+import Login from './pages/Admin';
 
 class App extends React.Component {
   state = {
@@ -20,11 +20,10 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-
           {window.location.pathname === "/admin" ? <NavAdmin /> : <Nav />}
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/admin" component={AdminLogin} />
+            <Route exact path="/admin" render={() => <Login updateGlobalState={this.updateGlobalState} />} />
             <Route exact path="/books" component={Books} />
             <Route exact path="/books/:id" component={Detail} />
             <Route exact path="/wines" component={Wines} />

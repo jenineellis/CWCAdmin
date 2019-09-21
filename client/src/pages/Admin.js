@@ -17,7 +17,9 @@ export default class Login extends React.Component {
         console.log(this.state)
         try {
             const User = await API.loginUser(this.state)
+            console.log("inside try")
             this.props.updateGlobalState("User", User.data)
+            console.log(this.state)
         } catch (error) {
             console.log(error.message)
         }

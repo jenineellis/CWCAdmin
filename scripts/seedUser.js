@@ -5,11 +5,7 @@ const db = require('../models');
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-<<<<<<< HEAD
   'mongodb://localhost/CDCDB', { useNewUrlParser: true }
-=======
-  "mongodb://localhost/CDCDB", { useNewUrlParser: true }
->>>>>>> master
 );
 
 const seedUser = [
@@ -17,7 +13,6 @@ const seedUser = [
     email: "jenine.ellis@gmail.com",
     password: "Test1234",
     userType: "Admin"
-<<<<<<< HEAD
   },
   {
     email: "matthew.heimark@gmail.com",
@@ -126,21 +121,3 @@ const seedAPI = async () => {
   }
 }
 seedAPI();
-=======
-  }
-
-];
-
-
-db.User
-  .remove({})
-  .then(() => db.User.collection.insertMany(seedUser))
-  .then(data => {
-    console.log(data.result.n + " User records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
->>>>>>> master

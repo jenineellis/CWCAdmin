@@ -16,10 +16,13 @@ module.exports = {
     loginUser: async function (req, res) {
         try {
             const dbData = await User.findOne({ email: req.body.email, userType: 'Admin' });
+
+            console.log(dbData);
             if (!dbData) {
                 throw 'No Admin Found'
             }
             if (!dbData.checkPassword(req.body.password)) {
+                console.log("incorrect password")
                 throw 'Incorrect password'
             }
             console.log(dbData)
@@ -28,6 +31,7 @@ module.exports = {
                 email: dbData.email,
                 userType: dbData.userType
             })
+            
         } catch (error) {
             res.send(error)
         }

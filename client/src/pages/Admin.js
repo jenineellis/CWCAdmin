@@ -7,7 +7,7 @@ export default class Login extends React.Component {
     state = {
         email: "",
         password: "",
-        loggedIn: ""
+        loggedIn: false
     };
 
     handleChange = e => {
@@ -19,12 +19,13 @@ export default class Login extends React.Component {
         console.log(this.state)
         try {
             const User = await API.loginUser(this.state)
+            console.log(User)
             this.props.updateGlobalState("User", User.data)
             this.setState({loggedIn: true})
             console.log(this.state)
         } catch (error) {
             console.log(error.message)
-            this.setState({ loggedIn: false })
+            this.setState({loggedIn: false })
             console.log(this.state)
         }
     };

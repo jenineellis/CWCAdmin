@@ -1,0 +1,23 @@
+
+
+.myCarousel button {
+    color: white;
+    height: 100%;
+    vertical-align: center;
+}
+
+.myCarousel {
+    position: absolute;
+    height: 100%;
+}
+
+.myCarousel .carousel, .slider-wrapper,.slider, .carousel .slide img {
+    height: 100%;
+}
+
+li.slide.selected,
+li.slide {
+    background-color: white;
+    padding: 0;
+
+}

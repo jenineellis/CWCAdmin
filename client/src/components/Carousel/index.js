@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./Carousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import img1 from "./img/sunrise-field.png";
@@ -9,15 +9,15 @@ import img4 from "./img/vineyard-mountains.png";
 import img5 from "./img/vineyard-sunny1.png";
 import img6 from "./img/vineyard-misty.png";
 
-class App extends Component {
+class MyCarousel extends Component {
   state = {
     status: ""
   };
 
   render() {
     return (
-      <div className="frame">
         <Carousel
+          className="myCarousel"
           showThumbs={false}
           showStatus={false}
           infiniteLoop={true}
@@ -44,19 +44,8 @@ class App extends Component {
             <img src={img6} alt="" />
           </div>
         </Carousel>
-        <div class="wrapper">
-
-
-          <div className="scroll" id="container"></div>
-        </div>
-      </div>
     );
   }
 }
 
-export default App;
-
-/// Nav
-
-// Carousel
-/// Footer
+export default MyCarousel;

@@ -5,24 +5,27 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Wines from "./pages/Wines";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import tempWinesList from "./pages/tempWinesList";
+import MyCarousel from "./components/Carousel";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/books" component={Books} />
-          <Route exact path="/books/:id" component={Detail} />
-          <Route exact path="/wines" component={Wines} />
-          <Route exact path="/tempWineList" component={tempWinesList} />
-          <Route component={NoMatch} />
-        </Switch>
+    <div>
+      <MyCarousel />
+      <div className="wrapper">
+        <div className="scroll" id="container">
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/books" component={Books} />
+              <Route exact path="/books/:id" component={Detail} />
+              <Route exact path="/wines" component={Wines} />
+              <Route component={NoMatch} />
+            </Switch>
+          </Router>
+        </div>
       </div>
-    </Router>
+
+    </div>
   );
 }
 

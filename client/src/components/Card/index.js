@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 
-function WineCard(props) {
+function WineCard({ props, onClick }) {
     return (
         <div className="card">
             <div className="row no-gutters">
@@ -21,7 +21,7 @@ function WineCard(props) {
                                 <input type="text" className="form-control text-center" placeholder="1" />
                             </div>
                             <div className="col-9">
-                                <button href="#" className="btn btn-primary ">Add to Cart</button>
+                                <button onClick={onClick} className="btn btn-primary ">Add to Cart</button>
                             </div>
                         </div>
                     </form>
@@ -37,5 +37,3 @@ function WineCard(props) {
         }
         
 export default WineCard;
-
-{/* <div dangerouslySetInnerHTML={{ __html: props.vineyardDetails}}></div> */}

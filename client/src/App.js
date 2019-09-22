@@ -7,16 +7,25 @@ import WineDetails from "./pages/WineDetails";
 import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
 import Login from "./pages/Admin";
+import Cart from "./pages/Cart";
 
 
 class App extends React.Component {
   state = {
-    User: null
+    User: null,
+    cartItems: []
   };
 
   updateGlobalState = (name, val) => {
     this.setState({ [name]: val }, () => console.log(this.state));
   };
+
+  handleAddToCart = (wine) => {
+    var exisitingCart = this.state.cartItems;
+    this.setState({
+      cartItems: [...exisitingCart, wine]
+    })
+  }
 
   render() {
     return (
@@ -36,8 +45,22 @@ class App extends React.Component {
                     <Login updateGlobalState={this.updateGlobalState} />
                   )}
                 />
-                <Route exact path="/wines" component={Wines} />
-                <Route exact path="/wine/:id" component={WineDetails} />
+                <Route exact path="/wines" 
+                render={() => (
+                  <Wines onAddToCart = {this.handleAddToCart} />
+                )}  
+                />
+                <Route exact path="/wine/:id" 
+                render={() => (
+                  <WineDetails onAddToCart = {this.handleAddToCart} />
+                )} 
+                />
+                <Route 
+                  exact path="/cart" 
+                  render={() => (
+                    <Cart cartItems = {this.state.cartItems} />
+                )}
+                />
                 <Route component={NoMatch} />
               </Switch>
             </Router>

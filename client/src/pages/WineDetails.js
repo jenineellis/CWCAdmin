@@ -30,6 +30,7 @@ class WineDetails extends React.Component {
                     shortDescription = {this.state.wine.longDescription || this.state.wine.shortDescription}
                     volume = {this.state.wine.volume}
                     price = {this.state.wine.price}
+                    onClick = {() => this.props.onAddToCart(this.state.wine)}
                     >
                     <Link to="/wines">
                         <button className="btn btn-primary">

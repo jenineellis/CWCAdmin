@@ -1,26 +1,29 @@
 import React from "react";
 import Login from '../LoginForm/';
 
+function LoginModal() {
+    const [show, setShow] = useState(false);
+    const handleLoginClose = () => setShow(false);
+    const handleLoginShow = () => setShow(true);
+}
+
 function Nav(props) {
     return (
         <div>
             {/* Modal stuff here */}
-            <div className="modal fade" id="modalLRForm">
-                <Login updateGlobalState={props.updateGlobalState} />
+            <div>
+                <Button variant="primary" onClick={handleShow}>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                    </Modal.Header>
+                    <div className="modal fade" id="modalLRForm">
+                        <Login updateGlobalState={props.updateGlobalState} />
+                    </div>
+                    <Modal.Footer>
+                        <Button className="btn btn-#1B75BB btn-block my-4" id="login" type="submit" onClick={this.loginUser}>Login</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a className="navbar-brand" href="/">
-                </a>
-
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        {/* add button portion */}
-                        <a className="nav-link" href="" className="btn btn-rounded btn-lgmy-3" id="index-login" data-toggle="modal"
-                            data-target="#modalLRForm">Login</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
     );
 }
 

@@ -1,87 +1,144 @@
-/* background-color: #530606;
-color: #d7dba6;
-color: #ffffff;
-background-color: #ffffffb3;
-box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
-background-color: #ffffff33;
-background-color: #ffffff33; */
-
-.login {
-    background-color:#530606;;
-    font-size: 18pt;
+body {
+    background-color: rgb(83, 6, 6);
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.company-info {
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-top: 1%;
-    margin-bottom: 1%
+ul.dropdown-menu.show,
+li {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(83, 6, 6);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(215, 219, 166);
+    font-size: 9pt;
+    font-weight: bold;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: #D7DBA6;
-  font-weight: bolder;
-  padding: 5%;
-  font-size: 3.7rem;
+a {
+    color: rgb(215, 219, 166);
+    text-decoration-line: none;
+    line-height: 12px;
 }
 
-.admin-links {
-    display: contents;
+a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration-line: none;
+    line-height: 12px;
 }
 
-.admin-links:active {
-    display: contents;
-    border-style: solid;
+.navbar {
+    background-color: rgb(83, 6, 6);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(215, 219, 166);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
 }
 
-.navbar .nav-pills >li >a {
+.nav-link {
+    background-color: rgb(83, 6, 6);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(215, 219, 166);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#CWClogo {
+    position: fixed;
+    width: auto;
+    top: 14.5%;
+    left: 33px;
+    z-index: 3;
+    float: left;
+}
+
+#container {
+
+    float: right;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    height: 80%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: none;
+}
+
+
+#root {
+    float: right;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin: none;
+    height: calc(100vh - 176px);
+    position: absolute;
+    top: 88px;
+}
+
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 11px;
+    text-align: center;
     color: black;
- }
-   .navbar .nav-pills > li > a:hover {
-     background-color: #D7DBA6;
-     color: black;
- }
-
-.navbar .nav-pills .active {
-   background-color: #D7DBA6;
-   color:Black ;
-   font-weight:bold;
-}
-body{
-  margin:20px;
-  background-color: black;
+    cursor: pointer;
+    z-index: 3;
 }
 
- li{
-  margin: 10px;
+.card {
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: auto;
 }
 
-.navbar{
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;  
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;  
+.card-title {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-top: 0px;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
 }
 
-.navbar{
-  background-color:grey;
-  border-color:grey;
+/* .card-body {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: auto;
 }
-.navbar .nav-pills >li >a {
+
+.card-text {
+    padding: 15 0px;
+    font-size: 12px;
+    text-align: left;
     color: black;
- }
-   .navbar .nav-pills > li > a:hover {
-     background-color: gold;
-     color: black;
- }
-
-.navbar .nav-pills .active {
-   background-color: gold;
-   color:Black ;
-   font-weight:bold;
+    cursor: pointer;
+    z-index: 3;
 }
 
+.card-link {
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(152, 11, 180);
+} */
 
-h2{
-  color:goldenrod;
+/* .form-row {
+    padding-top: 15px;
+    padding-bottom: 15px;
+} */
+
+.scroll {
+    height: 585px;
+    overflow-y: scroll;
 }

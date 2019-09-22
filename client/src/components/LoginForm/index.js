@@ -33,9 +33,11 @@ class Login extends Component {
 
     render() {
         return (
+
+
+
             <div>
-                <div id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
+                <div id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div className="modal-dialog cascading-modal" role="document">
                         <div className="modal-content">
                             <div className="modal-c-tabs">

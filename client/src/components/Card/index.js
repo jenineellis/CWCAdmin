@@ -12,7 +12,7 @@ function WineCard(props) {
                     <div className="card-body" data-id={props.id}>
                         <h5 className="card-title">{props.name}</h5>
                         <p className="card-text">{props.varietal}</p>
-                        <p className="card-text">{props.shortDescription}</p>
+                        <p className="card-text"><div dangerouslySetInnerHTML={{ __html: props.shortDescription}}></div></p>
                         <p className="card-text">{props.volume} ml | ${props.price}</p>
 
                     <form>
@@ -37,3 +37,5 @@ function WineCard(props) {
         }
         
 export default WineCard;
+
+{/* <div dangerouslySetInnerHTML={{ __html: props.vineyardDetails}}></div> */}

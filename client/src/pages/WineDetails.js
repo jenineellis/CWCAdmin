@@ -27,7 +27,7 @@ class WineDetails extends React.Component {
                     picture = {this.state.wine.pictures[0].base_url + this.state.wine.pictures[0].public_id}
                     name = {this.state.wine.name}
                     varietal = {this.state.wine.varietal}
-                    shortDescription = {this.state.wine.shortDescription}
+                    shortDescription = {this.state.wine.longDescription || this.state.wine.shortDescription}
                     volume = {this.state.wine.volume}
                     price = {this.state.wine.price}
                     >

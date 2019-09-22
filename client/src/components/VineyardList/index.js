@@ -21,5 +21,3 @@ function VineyardList(props) {
 }
 
 export default VineyardList;
-
-//dangerouslySetInnerHTML={{ __html: wine.longDescription }}

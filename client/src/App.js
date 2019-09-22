@@ -1,31 +1,51 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
 import Home from "./pages/Home";
-import Detail from "./pages/Detail";
 import Wines from "./pages/Wines";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import tempWinesList from "./pages/tempWinesList";
 import WineDetails from "./pages/WineDetails";
+import MyCarousel from "./components/Carousel";
+import NavAdmin from "./components/Admin/NavAdmin";
+import Login from "./pages/Admin";
 
-function App() {
-  return (
-    <Router>
+
+class App extends React.Component {
+  state = {
+    User: null
+  };
+
+  updateGlobalState = (name, val) => {
+    this.setState({ [name]: val }, () => console.log(this.state));
+  };
+
+  render() {
+    return (
       <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/books" component={Books} />
-          <Route exact path="/books/:id" component={Detail} />
-          <Route exact path="/wines" component={Wines} />
-          <Route exact path="/tempWineList" component={tempWinesList} />
-          <Route exact path="/wine/:id" component={WineDetails} />
-          <Route component={NoMatch} />
-        </Switch>
+
+        {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
+        <MyCarousel />
+        <div className="wrapper">
+          <div className="scroll" id="container">
+            <Router>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route
+                  exact
+                  path="/admin"
+                  render={() => (
+                    <Login updateGlobalState={this.updateGlobalState} />
+                  )}
+                />
+                <Route exact path="/wines" component={Wines} />
+                <Route exact path="/wine/:id" component={WineDetails} />
+                <Route component={NoMatch} />
+              </Switch>
+            </Router>
+          </div>
+        </div>
       </div>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;

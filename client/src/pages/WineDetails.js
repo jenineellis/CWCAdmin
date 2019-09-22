@@ -6,27 +6,30 @@ import { Link } from "react-router-dom";
 
 class WineDetails extends React.Component {
     state = {
-        wines: []
+        wine: {},
+        loading: true
     }
 
     componentDidMount() {
         API.getWine(this.props.match.params.id)
-            .then(res => this.setState({ wines: res.data }))
+            .then(res => this.setState({ wine: res.data, loading: false }))
             .catch(err => console.log(err));
     }
 
     render() {
         return (
             <div>
-                <WineCard
-                    key = {this.state.wines._id}
-                    id = {this.state.wines._id}
-                    picture = "http://res.cloudinary.com/winecom/image/upload/wqc1egbfwnlzbg9rerjd"
-                    name = {this.state.wines.name}
-                    varietal = {this.state.wines.varietal}
-                    shortDescription = {this.state.wines.shortDescription}
-                    volume = {this.state.wines.volume}
-                    price = {this.state.wines.price}
+                {!this.state.loading ?
+                (<div>
+                    <WineCard
+                    key = {this.state.wine._id}
+                    id = {this.state.wine._id}
+                    picture = {this.state.wine.pictures[0].base_url + this.state.wine.pictures[0].public_id}
+                    name = {this.state.wine.name}
+                    varietal = {this.state.wine.varietal}
+                    shortDescription = {this.state.wine.shortDescription}
+                    volume = {this.state.wine.volume}
+                    price = {this.state.wine.price}
                     >
                     <Link to="/wines">
                         <button className="btn btn-primary">
@@ -34,12 +37,16 @@ class WineDetails extends React.Component {
                         </button>
                     </Link>
                     </WineCard>
-                    {/* <VineyardList
-                        vineyardName = {this.state.wines.vineyard.fullName}
-                        subregion = {this.state.wines.nested_region}
-                        vineyardRegion = {this.state.wines.vineyard.region}  vineyardDetails ={this.state.wines.vineyard.longDescription}
+                    <VineyardList
+                        vineyardName = {this.state.wine.vineyard.fullName}
+                        subregion = {this.state.wine.nested_region}
+                        vineyardRegion = {this.state.wine.vineyard.region}  
+                        vineyardDetails ={this.state.wine.vineyard.longDescription}
                     >
-                    </VineyardList> */}
+                    </VineyardList>
+                    </div>
+                    ) : <div>Loading...</div>}
+                
             </div>
         )
     }

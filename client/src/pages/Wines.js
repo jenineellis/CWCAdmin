@@ -1,5 +1,4 @@
 import React from "react";
-// import Card from "react-bootstrap/Card";
 import API from "../utils/API";
 import WineCard from "../components/Card";
 import { Link } from "react-router-dom";

@@ -54,5 +54,3 @@ class WineDetails extends React.Component {
 
 export default WineDetails;
 
-// This will remove unneccessary tags from appearing on client
-// dangerouslySetInnerHTML={{ __html: wine.longDescription }}

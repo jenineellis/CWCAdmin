@@ -12,7 +12,7 @@ function VineyardList(props) {
                     </div>
                     <div className="row">
                         <div className="col-sm-12">
-                        <p>{props.vineyardDetails}</p>
+                        <p><div dangerouslySetInnerHTML={{ __html: props.vineyardDetails}}></div></p>
                         </div>
                     </div>
                 </div>   
@@ -21,3 +21,5 @@ function VineyardList(props) {
 }
 
 export default VineyardList;
+
+//dangerouslySetInnerHTML={{ __html: wine.longDescription }}

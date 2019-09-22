@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/books/:id" component={Detail} />
           <Route exact path="/wines" component={Wines} />
           <Route exact path="/tempWineList" component={tempWinesList} />
-          <Route exact path="/WineDetails" component={WineDetails} />
+          <Route exact path="/wine/:id" component={WineDetails} />
           <Route component={NoMatch} />
         </Switch>
       </div>

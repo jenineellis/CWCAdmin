@@ -26,6 +26,8 @@ function WineCard(props) {
                         </div>
                     </form>
 
+                    <div>{props.children}</div>
+
                     <a href="#" className="card-link">Customer Reviews</a>
                     </div>
                 </div>

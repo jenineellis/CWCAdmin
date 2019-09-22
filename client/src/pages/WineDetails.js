@@ -2,54 +2,47 @@ import React from "react";
 import API from "../utils/API";
 import WineCard from "../components/Card";
 import VineyardList from "../components/VineyardList";
+import { Link } from "react-router-dom";
 
 class WineDetails extends React.Component {
     state = {
-        wines: [],
+        wines: []
     }
 
     componentDidMount() {
-        this.loadWines();
-    }
-
-    loadWines = () => {
-        API.getWines()
-          .then(res => this.setState({ wines: res.data }) )
-          .catch(err => console.log(err));
+        API.getWine(this.props.match.params.id)
+            .then(res => this.setState({ wines: res.data }))
+            .catch(err => console.log(err));
     }
 
     render() {
         return (
             <div>
-                {this.state.wines.length > 0 ?
-                    this.state.wines.map((wine) => (
-                        <div>
-                        <WineCard
-                            key = {wine._id}
-                            id = {wine._id}
-                            picture = {wine.pictures[0].base_url + wine.pictures[0].public_id}
-                            name = {wine.name}
-                            varietal = {wine.varietal}
-                            shortDescription = {wine.shortDescription}
-                            volume = {wine.volume}
-                            price = {wine.price}
-                        >
-                        </WineCard>
-                        <VineyardList
-                            vineyardName = {wine.vineyard.fullName}
-                            subregion = {wine.nested_region}
-                            vineyardRegion = {wine.vineyard.region}                            
-                            vineyardDetails = {wine.vineyard.longDescription}
-                        >
-                        </VineyardList>
-                        </div>
-                    ))
-                : <div>No wines available</div>}
+                <WineCard
+                    key = {this.state.wines._id}
+                    id = {this.state.wines._id}
+                    picture = "http://res.cloudinary.com/winecom/image/upload/wqc1egbfwnlzbg9rerjd"
+                    name = {this.state.wines.name}
+                    varietal = {this.state.wines.varietal}
+                    shortDescription = {this.state.wines.shortDescription}
+                    volume = {this.state.wines.volume}
+                    price = {this.state.wines.price}
+                    >
+                    <Link to="/wines">
+                        <button className="btn btn-primary">
+                            Back to Browse
+                        </button>
+                    </Link>
+                    </WineCard>
+                    {/* <VineyardList
+                        vineyardName = {this.state.wines.vineyard.fullName}
+                        subregion = {this.state.wines.nested_region}
+                        vineyardRegion = {this.state.wines.vineyard.region}  vineyardDetails ={this.state.wines.vineyard.longDescription}
+                    >
+                    </VineyardList> */}
             </div>
         )
     }
-
-
 }
 
 export default WineDetails;

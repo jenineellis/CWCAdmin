@@ -2,6 +2,7 @@ import React from "react";
 // import Card from "react-bootstrap/Card";
 import API from "../utils/API";
 import WineCard from "../components/Card";
+import { Link } from "react-router-dom";
 
 
 class Wines extends React.Component {
@@ -128,7 +129,10 @@ class Wines extends React.Component {
                             shortDescription = {wine.shortDescription}
                             volume = {wine.volume}
                             price = {wine.price}
-                        >
+                        >                            
+                            <Link to={"/wine/" + wine._id}>
+                                <button className="btn btn-primary">View Details</button>
+                            </Link>
                         </WineCard>
                     ))
                 : <div>No wines available</div>} 

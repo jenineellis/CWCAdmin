@@ -6,6 +6,10 @@ import NoMatch from "./pages/NoMatch";
 import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
 import Login from "./pages/Admin";
+import TopNav from "./components/TopNav";
+import BottomNav from "./components/BottomNav";
+import OurProducers from "./pages/OurProducers";
+import FAQs from "./pages/FAQs";
 
 class App extends React.Component {
   state = {
@@ -18,12 +22,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
-        <MyCarousel />
-        <div className="wrapper">
-          <div className="scroll" id="container">
-            <Router>
+      <Router>
+        <div>
+          <TopNav></TopNav>
+          {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
+          <div id="CWClogo">
+            <img src="reverseLogo.png" />
+          </div>
+          <MyCarousel />
+          <div className="wrapper">
+            <div className="scroll" id="container">
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route
@@ -34,12 +42,17 @@ class App extends React.Component {
                   )}
                 />
                 <Route exact path="/wines" component={Wines} />
+                <Route exact path="/producers" component={OurProducers} />
+                <Route exact path="/faqs" component={FAQs} />
                 <Route component={NoMatch} />
               </Switch>
-            </Router>
+            </div>
+          </div>
+          <div id="footer">
+            <BottomNav></BottomNav>
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

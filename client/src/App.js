@@ -28,7 +28,7 @@ class App extends React.Component {
           <TopNav></TopNav>
           {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
           <div id="CWClogo">
-            <img src="reverseLogo.png" />
+            <img src="reverseLogo.png" width="150" height="176" />
           </div>
           <MyCarousel />
           <div className="wrapper">

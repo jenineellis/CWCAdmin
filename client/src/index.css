@@ -30,12 +30,9 @@ body {
 
 #CWClogo {
     position: fixed;
-    width: 50%;
-    height: auto;
     top: 14.5%;
     left: 33px;
     z-index: 3;
-    float: left;
 }
 
 #container {

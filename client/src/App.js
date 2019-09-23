@@ -21,6 +21,7 @@ class App extends React.Component {
   };
 
   handleAddToCart = (wine) => {
+    console.log("add wine to cart", wine);
     var exisitingCart = this.state.cartItems;
     this.setState({
       cartItems: [...exisitingCart, wine]
@@ -51,8 +52,8 @@ class App extends React.Component {
                 )}  
                 />
                 <Route exact path="/wine/:id" 
-                render={() => (
-                  <WineDetails onAddToCart = {this.handleAddToCart} />
+                render={(routeProps) => (
+                  <WineDetails onAddToCart = {this.handleAddToCart} {...routeProps}/>
                 )} 
                 />
                 <Route 

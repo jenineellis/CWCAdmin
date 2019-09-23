@@ -4,7 +4,16 @@ import "./style.css"
 class WineCard extends React.Component {
 
     state = {
-        quantity: 1
+        quantity: ""
+    }
+
+    handleChange = event => {
+        this.setState({quantity: event.target.value});
+        console.log("quantity: " + this.state.quantity);
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
     }
 
     render() {
@@ -23,7 +32,11 @@ class WineCard extends React.Component {
 
                             <div className="form-row">
                                 <div className="col-1">
-                                    <input type="text" className="form-control text-center" placeholder="1" value={this.state.quantity} />
+                                    <input type="text" 
+                                    className="form-control text-center" 
+                                    placeholder="1"
+                                    onChange={this.handleChange} 
+                                    value={this.state.quantity} />
                                 </div>
                                 <div className="col-9">
                                     <button onClick={this.props.onAddToCart} className="btn btn-primary ">Add to Cart</button>

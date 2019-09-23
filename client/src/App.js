@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Wines from "./pages/Wines";
 import NoMatch from "./pages/NoMatch";
+import WineDetails from "./pages/WineDetails";
 import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
 import Login from "./pages/Admin";
@@ -44,6 +45,7 @@ class App extends React.Component {
                 <Route exact path="/wines" component={Wines} />
                 <Route exact path="/producers" component={OurProducers} />
                 <Route exact path="/faqs" component={FAQs} />
+                <Route exact path="/wine/:id" component={WineDetails} />
                 <Route component={NoMatch} />
               </Switch>
             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 
-function wineCard(props) {
+function WineCard(props) {
     return (
         <div className="card">
             <div className="row no-gutters">
@@ -9,10 +9,10 @@ function wineCard(props) {
                     <img src={props.picture} className="card-img" alt="wineLabel"></img>
                 </div>
                 <div className="col-sm-9">
-                    <div className="card-body">
+                    <div className="card-body" data-id={props.id}>
                         <h5 className="card-title">{props.name}</h5>
                         <p className="card-text">{props.varietal}</p>
-                        <p className="card-text">{props.shortDescription}</p>
+                        <p className="card-text"><div dangerouslySetInnerHTML={{ __html: props.shortDescription}}></div></p>
                         <p className="card-text">{props.volume} ml | ${props.price}</p>
 
                     <form>
@@ -26,6 +26,8 @@ function wineCard(props) {
                         </div>
                     </form>
 
+                    <div>{props.children}</div>
+
                     <a href="#" className="card-link">Customer Reviews</a>
                     </div>
                 </div>
@@ -34,4 +36,6 @@ function wineCard(props) {
             )
         }
         
-export default wineCard;
+export default WineCard;
+
+{/* <div dangerouslySetInnerHTML={{ __html: props.vineyardDetails}}></div> */}

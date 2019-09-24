@@ -8,6 +8,11 @@ import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
 import Admin from "./pages/Admin";
 
+import Login from "./pages/Admin";
+import TopNav from "./components/TopNav";
+import BottomNav from "./components/BottomNav";
+import OurProducers from "./pages/OurProducers";
+import FAQs from "./pages/FAQs";
 
 class App extends React.Component {
   state = {
@@ -21,24 +26,32 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-
-        {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
-        <MyCarousel />
-        <div className="wrapper">
-          <div className="scroll" id="container">
-            <Router>
+      <Router>
+        <div>
+          <TopNav></TopNav>
+          {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
+          <div id="CWClogo">
+            <img src="reverseLogo.png" width="150" height="176" />
+          </div>
+          <MyCarousel />
+          <div className="wrapper">
+            <div className="scroll" id="container">
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/admin" render={() => <Admin updateGlobalState={this.updateGlobalState} />} />
                 <Route exact path="/wines" component={Wines} />
+                <Route exact path="/producers" component={OurProducers} />
+                <Route exact path="/faqs" component={FAQs} />
                 <Route exact path="/wine/:id" component={WineDetails} />
                 <Route component={NoMatch} />
               </Switch>
-            </Router>
+            </div>
+          </div>
+          <div id="footer">
+            <BottomNav></BottomNav>
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

@@ -13,7 +13,7 @@ export function CartTable({ children }) {
                         <th scope="col">Product</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Remove Item</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 { children }

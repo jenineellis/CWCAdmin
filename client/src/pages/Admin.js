@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import API from '../utils/AdminAPI'
 import Dashboard from '../components/Admin/Dashboard';
-import Login from '../components/LoginForm';
 
 export default class Admin extends React.Component {
     state = {
@@ -28,7 +27,6 @@ export default class Admin extends React.Component {
         } else {
             return (
                 <div>
-                    <Login LoginUser={this.loginUser} updateGlobalState={this.props.updateGlobalState} />
                 </div>
             )
         }

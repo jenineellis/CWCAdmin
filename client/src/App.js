@@ -7,8 +7,7 @@ import WineDetails from "./pages/WineDetails";
 import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
 import Admin from "./pages/Admin";
-
-import Login from "./pages/Admin";
+import Login from "./components/LoginForm";
 import TopNav from "./components/TopNav";
 import BottomNav from "./components/BottomNav";
 import OurProducers from "./pages/OurProducers";
@@ -17,19 +16,25 @@ import FAQs from "./pages/FAQs";
 class App extends React.Component {
   state = {
     User: null,
-    loggedIn: false
+    loggedIn: false,
+    showModal: false,
+    loginError: ""
   }
 
   updateGlobalState = (name, val) => {
     this.setState({ [name]: val }, () => console.log(this.state));
   };
+  getGlobalState = (name) => {
+    return this.state[name];
+  }
 
   render() {
     return (
       <Router>
         <div>
-          <TopNav></TopNav>
-          {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
+          <Login updateGlobalState={this.updateGlobalState} getGlobalState={this.getGlobalState} />
+
+          {window.location.pathname === "/admin" ? <NavAdmin updateGlobalState={this.updateGlobalState} /> : <TopNav updateGlobalState={this.updateGlobalState}/>}
           <div id="CWClogo">
             <img src="reverseLogo.png" width="150" height="176" />
           </div>

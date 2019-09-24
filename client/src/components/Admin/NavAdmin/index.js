@@ -1,10 +1,11 @@
 import React from "react";
 import { Nav, Navbar } from 'react-bootstrap';
-import Login from '../../LoginForm';
 import "./style.css";
 
 function NavAdmin(props) {
+    const handleShow = () => props.updateGlobalState('showModal', true);
     return (
+        
         <div className="nav-admin">
         <Navbar fixed='top'>
         <Nav variant="pills" defaultActiveKey="/admin" as="ul">
@@ -21,12 +22,13 @@ function NavAdmin(props) {
                 <Nav.Link eventKey="/admin/producers">Producers</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
-                <Nav.Link eventKey="/admin/login">Login</Nav.Link>
+                <Nav.Link onClick={handleShow}>Login</Nav.Link>
             </Nav.Item>
         </Nav>
         </Navbar>
         </div>
     );
 }
+
 
 export default NavAdmin;

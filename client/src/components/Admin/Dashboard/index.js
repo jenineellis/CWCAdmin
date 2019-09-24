@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+// import API from '../../utils/AdminAPI';
+// import { Modal, Body, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap';
 import "./style.css";
 
-export class Dashboard extends React.Component {
+export class Dashboard extends Component {
+    state = {
+        email: "",
+        password: "",
+        loggedIn: ""
+    };
+
+    constructor(props) {
+        super(props)
+    }
+
     render() {
         return (
-            <div>Dashboard</div>
+            <div dashboard={this.props.getGlobalState('loggedIn', true)}>
+                <h1>DASHBOARD</h1>
+            </div>
         )
     }
 }

@@ -34,3 +34,16 @@ export function CartItems(props) {
             </tbody>
     )
 }
+
+export function Subtotal(props) {
+    return (
+        <tbody>
+            <tr>
+                <td scope="row">Order Total</td>
+                <td>{props.totalQty}</td>
+                <td>{props.totalPrice}</td>
+                <td><button className="btn btn-primary">Checkout</button></td>
+            </tr>
+        </tbody>
+    )
+}

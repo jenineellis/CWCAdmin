@@ -1,5 +1,5 @@
 import React from "react";
-import { CartCard, CartTable, CartItems } from "../components/CartPage";
+import { CartCard, CartTable, CartItems, Subtotal } from "../components/CartPage";
 
 class Cart extends React.Component {
     render() {
@@ -16,6 +16,7 @@ class Cart extends React.Component {
                         >
                         </CartItems>
                     ))}  
+                    <Subtotal />
                 </CartTable>
 
                 ) : <div>Looks a little empty. Browse our collection of wines.</div>}

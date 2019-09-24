@@ -1,11 +1,6 @@
 import React from "react";
 import Login from '../LoginForm/';
 
-function LoginModal() {
-    const [show, setShow] = useState(false);
-    const handleLoginClose = () => setShow(false);
-    const handleLoginShow = () => setShow(true);
-}
 
 function Nav(props) {
     return (

@@ -1,15 +1,31 @@
 import React from "react";
+import { Nav, Navbar } from 'react-bootstrap';
+import Login from '../../LoginForm';
+import "./style.css";
 
 function NavAdmin(props) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a className="navbar-brand" href="/">ADMIN NAV</a>
-            <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                    <a className="nav-link" href="/user">USER</a>
-                </li>
-            </ul>
-        </nav>
+        <div className="nav-admin">
+        <Navbar fixed='top'>
+        <Nav variant="pills" defaultActiveKey="/admin" as="ul">
+            <Nav.Item as="li">
+                <Nav.Link href="/admin">Dashboard</Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+                <Nav.Link eventKey="/admin/inventory">Orders</Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+                <Nav.Link eventKey="/admin/users">Users</Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+                <Nav.Link eventKey="/admin/producers">Producers</Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+                <Nav.Link eventKey="/admin/login">Login</Nav.Link>
+            </Nav.Item>
+        </Nav>
+        </Navbar>
+        </div>
     );
 }
 

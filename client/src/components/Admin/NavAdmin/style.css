@@ -1,87 +1,59 @@
-/* background-color: #530606;
-color: #d7dba6;
-color: #ffffff;
-background-color: #ffffffb3;
-box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
-background-color: #ffffff33;
-background-color: #ffffff33; */
-
-.login {
-    background-color:#530606;;
-    font-size: 18pt;
-}
-
-.company-info {
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-top: 1%;
-    margin-bottom: 1%
-}
-
 .navbar-light .navbar-nav .nav-link {
-  color: #D7DBA6;
-  font-weight: bolder;
-  padding: 5%;
-  font-size: 3.7rem;
+  color: #d7dba6cd;
+  list-style-type: none;
+  width:100%;  
 }
 
-.admin-links {
-    display: contents;
-}
-
-.admin-links:active {
-    display: contents;
-    border-style: solid;
+.navbar{
+  border-radius: 20px;
+  background-color: #530606;
+  border-color: #00000033;
+  color: #fff;
+  list-style: none;
+  margin: 0 2px;
+  display: flex;
+  justify-content: space-around;
+  padding: 2.7rem;
 }
 
 .navbar .nav-pills >li >a {
-    color: black;
- }
-   .navbar .nav-pills > li > a:hover {
-     background-color: #D7DBA6;
-     color: black;
+  color: #d7dba6;
+  padding: 2rem;
+  background-color: #530606;
+  border-color: #00000033;
+  list-style-type: none;
+  width:100%;
+  padding: 2.7rem;
+
  }
 
-.navbar .nav-pills .active {
-   background-color: #D7DBA6;
-   color:Black ;
-   font-weight:bold;
-}
-body{
-  margin:20px;
-  background-color: black;
-}
+.navbar .nav-pills > li > a:hover {
+  color: #000;
+  background-color: #530606;
+  border-color: #00000033;
+  border-radius: 20px;
+  padding: 2.7rem;
+  list-style-type: none;
+  width:100%;  
+ }
 
  li{
-  margin: 10px;
+   margin: 10px;
+   padding: 2rem;
+   background-color: #530606;
+   border-color: #00000033;
+   list-style-type: none;
+   padding: 2.7rem;
+   width:100%;  
 }
 
-.navbar{
-border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;  
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;  
-}
-
-.navbar{
-  background-color:grey;
-  border-color:grey;
-}
-.navbar .nav-pills >li >a {
-    color: black;
- }
-   .navbar .nav-pills > li > a:hover {
-     background-color: gold;
-     color: black;
- }
 
 .navbar .nav-pills .active {
-   background-color: gold;
-   color:Black ;
-   font-weight:bold;
-}
-
-
-h2{
-  color:goldenrod;
+  background-color: #D7DBA6;
+  color:#000;
+  font-weight:bolder;
+  border-radius: 20px;
+  padding: 2.7rem;
+  list-style-type: none;
+  width:100%;  
 }

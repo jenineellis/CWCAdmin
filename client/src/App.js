@@ -6,7 +6,7 @@ import NoMatch from "./pages/NoMatch";
 import WineDetails from "./pages/WineDetails";
 import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
-import Login from "./pages/Admin";
+import Admin from "./pages/Admin";
 
 
 class App extends React.Component {

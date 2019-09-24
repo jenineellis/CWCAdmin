@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import API from '../../utils/AdminAPI'
+import API from '../../utils/AdminAPI';
+import { Modal, Body, Button, ModalDialog, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap';
+
 
 class Login extends Component {
     state = {
@@ -8,7 +10,7 @@ class Login extends Component {
         loggedIn: ""
     };
 
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
@@ -33,40 +35,42 @@ class Login extends Component {
 
     render() {
         return (
-
-
-
             <div>
-                <div id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div className="modal-dialog cascading-modal" role="document">
-                        <div className="modal-content">
-                            <div className="modal-c-tabs">
-                                <div className="tab-content">
-                                    <div className="tab-pane fade in show active" id="panel1" role="tabpanel">
-                                        <div className="h4 mb-4">Sign in</div>
-                                        <input type="email" id="emaillogin" className="form-control mb-4" placeholder="E-mail" name="email" onChange={this.handleChange}/>
-                                        <input type="password" id="passlogin" className="form-control mb-4" placeholder="Password" name="password" onChange={this.handleChange} />
-                                        <div className="d-flex justify-content-around">
-                                            <div>
-                                                <div className="custom-control custom-checkbox">
-                                                    <input type="checkbox" className="custom-control-input" id="consent" />
-                                                    <label className="custom-control-label" for="consent">Remember me</label>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <a href="#">Forgot password?</a>
+                <Modal>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="modal-c-tabs">
+                            <div className="tab-content">
+                                <div className="tab-pane fade in show active" id="panel1" role="tabpanel">
+                                    <div className="h4 mb-4">Sign in</div>
+                                    <input type="email" id="emaillogin" className="form-control mb-4" placeholder="E-mail" name="email" onChange={this.handleChange} />
+                                    <input type="password" id="passlogin" className="form-control mb-4" placeholder="Password" name="password" onChange={this.handleChange} />
+                                    <div className="d-flex justify-content-around">
+                                        <div>
+                                            <div className="custom-control custom-checkbox">
+                                                <input type="checkbox" className="custom-control-input" id="consent" />
+                                                <label className="custom-control-label" for="consent">Remember me</label>
                                             </div>
                                         </div>
-                                        <button className="btn btn-#1B75BB btn-block my-4" id="login" type="submit" onClick={this.loginUser}>Login</button>
+                                        <div>
+                                            <a href="#">Forgot password?</a>
+                                        </div>
                                     </div>
+                                    <button onClick={this.loginUser}>Login</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button onClick="/">Close</button>
+                        <button onClick={this.loginUser}>Login</button>
+                    </Modal.Footer>
+                </Modal>
                 </div>
-            </div>
-        )
-    }
-}
-
+                )
+            };
+        }
+        
 export default Login;

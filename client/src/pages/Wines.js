@@ -2,7 +2,7 @@ import React from "react";
 import API from "../utils/API";
 import WineCard from "../components/Card";
 import { Link } from "react-router-dom";
-
+import "./style.css"
 
 class Wines extends React.Component {
 
@@ -116,7 +116,7 @@ class Wines extends React.Component {
                     <button className="btn" onClick={this.handleClearAll}>Clear all filters</button>
                 </form>
 
-                <div id="wineResultsContainer">
+                <div className="scroll" id="wineResultsContainer">
                 {this.state.wines.length > 0 ?
                     this.state.wines.map((wine) => (
                         <WineCard

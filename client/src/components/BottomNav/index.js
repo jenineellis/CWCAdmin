@@ -12,10 +12,12 @@ class BottomNav extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link componentClass={Link} href="" to="/">
+            <Nav.Link as={Link} to="/about">
               About Us
             </Nav.Link>
-            <Nav.Link href="#">Terms & Conditions</Nav.Link>
+            <Nav.Link as={Link} to="/terms">
+              Terms & Conditions
+            </Nav.Link>
             <Nav.Link as={Link} to="/faqs">
               FAQs
             </Nav.Link>

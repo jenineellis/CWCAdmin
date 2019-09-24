@@ -7,13 +7,13 @@ export function CartCard({ children }) {
 export function CartTable({ children }) {
     return (
         <div>
-            <table className="cartItems">
+            <table className="cartItems table">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th></th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 { children }
@@ -27,7 +27,7 @@ export function CartItems(props) {
         <div>
             <tbody>
                 <tr>
-                    <td>{props.productName}</td>
+                    <td scope="row">{props.productName}</td>
                     <td>{props.quantity}</td>
                     <td>{props.price}</td>
                     <td></td>

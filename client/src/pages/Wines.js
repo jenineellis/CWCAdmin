@@ -113,7 +113,7 @@ class Wines extends React.Component {
                         <option value="high">Above $50</option>
                     </select>
 
-                    <button class="btn" onClick={this.handleClearAll}>Clear all filters</button>
+                    <button className="btn" onClick={this.handleClearAll}>Clear all filters</button>
                 </form>
 
                 <div id="wineResultsContainer">
@@ -128,6 +128,7 @@ class Wines extends React.Component {
                             shortDescription = {wine.shortDescription}
                             volume = {wine.volume}
                             price = {wine.price}
+                            onAddToCart = {() => this.props.onAddToCart(wine)}
                         >                            
                             <Link to={"/wine/" + wine._id}>
                                 <button className="btn btn-primary">View Details</button>

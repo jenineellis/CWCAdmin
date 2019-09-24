@@ -13,7 +13,7 @@ export function CartTable({ children }) {
                         <th scope="col">Product</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Remove Item</th>
                     </tr>
                 </thead>
                 { children }
@@ -24,15 +24,13 @@ export function CartTable({ children }) {
 
 export function CartItems(props) {
     return (
-        <div>
             <tbody>
                 <tr>
                     <td scope="row">{props.productName}</td>
                     <td>{props.quantity}</td>
                     <td>{props.price}</td>
-                    <td></td>
+                    <td><i class="far fa-trash-alt"></i></td>
                 </tr>
             </tbody>
-        </div>
     )
 }

@@ -8,7 +8,10 @@ import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
 import Login from "./pages/Admin";
 import Cart from "./pages/Cart";
-
+import TopNav from "./components/TopNav";
+import BottomNav from "./components/BottomNav";
+import OurProducers from "./pages/OurProducers";
+import FAQs from "./pages/FAQs";
 
 class App extends React.Component {
   state = {
@@ -30,13 +33,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-
-        {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
-        <MyCarousel />
-        <div className="wrapper">
-          <div className="scroll" id="container">
-            <Router>
+      <Router>
+        <div>
+          <TopNav cartItems={this.state.cartItems}></TopNav>
+          {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
+          <div id="CWClogo">
+            <img src="reverseLogo.png" width="150" height="176" />
+          </div>
+          <MyCarousel />
+          <div className="wrapper">
+            <div className="scroll" id="container">
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route
@@ -46,6 +52,7 @@ class App extends React.Component {
                     <Login updateGlobalState={this.updateGlobalState} />
                   )}
                 />
+
                 <Route exact path="/wines" 
                 render={() => (
                   <Wines onAddToCart = {this.handleAddToCart} />
@@ -61,13 +68,19 @@ class App extends React.Component {
                   render={() => (
                     <Cart cartItems = {this.state.cartItems} />
                 )}
-                />
+                /> 
+                <Route exact path="/producers" component={OurProducers} />
+                <Route exact path="/faqs" component={FAQs} />
+
                 <Route component={NoMatch} />
               </Switch>
-            </Router>
+            </div>
+          </div>
+          <div id="footer">
+            <BottomNav></BottomNav>
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

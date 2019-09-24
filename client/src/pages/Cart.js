@@ -9,8 +9,8 @@ class Cart extends React.Component {
                     {this.props.cartItems.map(cartItem => (
                         <CartItems 
                         productName = {cartItem.name}
-                        quantity = {cartItem.quantity}
-                        price = {cartItem.price}
+                        quantity = "1"
+                        price = {"$" + cartItem.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                         >
                         </CartItems>
                     ))}  

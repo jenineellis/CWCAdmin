@@ -21,14 +21,14 @@ class WineCard extends React.Component {
             <div className="card">
                 <div className="row no-gutters">
                     <div className="col-sm-3">
-                        <img src={this.props.picture} className="card-img" alt="wineLabel"></img>
+                        <img src={this.props.picture} className="card-img wineLabel" alt="wineLabel"></img>
                     </div>
                     <div className="col-sm-9">
                         <div className="card-body" data-id={this.props.id}>
                             <h5 className="card-title">{this.props.name}</h5>
                             <p className="card-text">{this.props.varietal}</p>
                             <p className="card-text" dangerouslySetInnerHTML={{ __html: this.props.shortDescription }}></p>
-                            <p className="card-text">{this.props.volume} ml | ${this.props.price}</p>
+                            <p className="card-text">{this.props.volume} ml | ${this.props.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
 
                             <div className="form-row">
                                 <div className="col-1">

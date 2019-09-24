@@ -8,6 +8,7 @@ import MyCarousel from "./components/Carousel";
 import NavAdmin from "./components/Admin/NavAdmin";
 import Admin from "./pages/Admin";
 import Login from "./components/LoginForm";
+import Cart from "./pages/Cart";
 import TopNav from "./components/TopNav";
 import BottomNav from "./components/BottomNav";
 import OurProducers from "./pages/OurProducers";
@@ -18,14 +19,24 @@ class App extends React.Component {
     User: null,
     loggedIn: false,
     showModal: false,
-    loginError: ""
-  }
+    loginError: "",
+    cartItems: []
+  };
 
   updateGlobalState = (name, val) => {
     this.setState({ [name]: val }, () => console.log(this.state));
   };
+  
   getGlobalState = (name) => {
     return this.state[name];
+  }
+
+  handleAddToCart = (wine) => {
+    console.log("add wine to cart", wine);
+    var exisitingCart = this.state.cartItems;
+    this.setState({
+      cartItems: [...exisitingCart, wine]
+    })
   }
 
   render() {
@@ -35,6 +46,8 @@ class App extends React.Component {
           <Login updateGlobalState={this.updateGlobalState} getGlobalState={this.getGlobalState} />
 
           {window.location.pathname === "/admin" ? <NavAdmin updateGlobalState={this.updateGlobalState} /> : <TopNav updateGlobalState={this.updateGlobalState}/>}
+          <TopNav cartItems={this.state.cartItems}></TopNav>
+          {window.location.pathname === "/admin" ? <NavAdmin /> : <span></span>}
           <div id="CWClogo">
             <img src="reverseLogo.png" width="150" height="176" />
           </div>
@@ -43,11 +56,14 @@ class App extends React.Component {
             <div className="scroll" id="container">
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/admin" render={() => <Admin updateGlobalState={this.updateGlobalState} />} />
+                <Route exact path="/admin" render={() => (<Admin updateGlobalState={this.updateGlobalState} /> )} />
                 <Route exact path="/wines" component={Wines} />
+                <Route exact path="/admin" render={() => (<Login updateGlobalState={this.updateGlobalState} /> )} />
+                <Route exact path="/wines" render={() => (<Wines onAddToCart = {this.handleAddToCart} />)} />
+                <Route exact path="/wine/:id" render={(routeProps) => (<WineDetails onAddToCart = {this.handleAddToCart} {...routeProps}/>)} />
+                <Route exact path="/cart" render={() => (<Cart cartItems = {this.state.cartItems} />)} /> 
                 <Route exact path="/producers" component={OurProducers} />
                 <Route exact path="/faqs" component={FAQs} />
-                <Route exact path="/wine/:id" component={WineDetails} />
                 <Route component={NoMatch} />
               </Switch>
             </div>

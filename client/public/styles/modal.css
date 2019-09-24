@@ -39,12 +39,12 @@ a:hover {
 /* form button */
 .btn-block {
     border:none;
-    background-color: rgb(83, 6, 6);
+    background-color: #530606;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(215, 219, 166);
     font-size: 18pt;
     padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-align: center;
     text-align: center;
 }

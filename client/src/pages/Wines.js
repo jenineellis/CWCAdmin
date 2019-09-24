@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../utils/API";
-import Card from "../components/Card";
+import WineCard from "../components/Card";
+import { Link } from "react-router-dom";
 
 
 class Wines extends React.Component {
@@ -112,21 +113,27 @@ class Wines extends React.Component {
                         <option value="high">Above $50</option>
                     </select>
 
-                    <button class="btn" onClick={this.handleClearAll}>Clear all filters</button>
+                    <button className="btn" onClick={this.handleClearAll}>Clear all filters</button>
                 </form>
 
                 <div id="wineResultsContainer">
                 {this.state.wines.length > 0 ?
                     this.state.wines.map((wine) => (
-                        <Card
+                        <WineCard
+                            key = {wine._id}
+                            id = {wine._id}
                             picture = {wine.pictures[0].base_url + wine.pictures[0].public_id}
                             name = {wine.name}
                             varietal = {wine.varietal}
                             shortDescription = {wine.shortDescription}
                             volume = {wine.volume}
                             price = {wine.price}
-                        >
-                        </Card>
+                            onAddToCart = {() => this.props.onAddToCart(wine)}
+                        >                            
+                            <Link to={"/wine/" + wine._id}>
+                                <button className="btn btn-primary">View Details</button>
+                            </Link>
+                        </WineCard>
                     ))
                 : <div>No wines available</div>} 
             </div>
@@ -138,3 +145,5 @@ class Wines extends React.Component {
 }
 
 export default Wines;
+
+

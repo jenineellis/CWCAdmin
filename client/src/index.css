@@ -4,30 +4,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-ul.dropdown-menu.show,
-li {
-    padding: 5px;
-    margin: 5px;
-    background-color: rgb(83, 6, 6);
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(215, 219, 166);
-    font-size: 9pt;
-    font-weight: bold;
-}
-
-a {
-    color: rgb(215, 219, 166);
+.navbar .navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link:visited {
     text-decoration-line: none;
-    line-height: 12px;
-}
-
-a:hover {
-    color: rgb(255, 255, 255);
-    text-decoration-line: none;
-    line-height: 12px;
-}
-
-.navbar {
     background-color: rgb(83, 6, 6);
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(215, 219, 166);
@@ -36,31 +15,27 @@ a:hover {
     font-size: 16px;
 }
 
-.nav-link {
-    background-color: rgb(83, 6, 6);
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(215, 219, 166);
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.nav-link:hover {
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:active {
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fas {
+    color: rgb(215, 219, 166);
+}
+
+.fas:hover {
+    color: white;
 }
 
 #CWClogo {
     position: fixed;
-    width: auto;
     top: 14.5%;
     left: 33px;
     z-index: 3;
-    float: left;
 }
 
 #container {
-
     float: right;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.7);
@@ -73,15 +48,11 @@ a:hover {
     margin: none;
 }
 
-
 #root {
-    float: right;
-    background-color: rgb(255, 255, 255);
     width: 100%;
     margin: none;
-    height: calc(100vh - 176px);
+    height: calc(100vh - 100px);
     position: absolute;
-    top: 88px;
 }
 
 #message {
@@ -111,34 +82,23 @@ a:hover {
     font-size: 24px;
 }
 
-/* .card-body {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: none;
-    width: auto;
-}
-
-.card-text {
-    padding: 15 0px;
-    font-size: 12px;
-    text-align: left;
-    color: black;
-    cursor: pointer;
-    z-index: 3;
-}
-
-.card-link {
-    text-align: left;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: rgb(152, 11, 180);
-} */
-
-/* .form-row {
-    padding-top: 15px;
-    padding-bottom: 15px;
-} */
-
 .scroll {
     height: 585px;
     overflow-y: scroll;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+}
+
+#footer #footer.navbar #footer.navbar-light #footer.navbar-nav #footer.nav-link,
+#footer.navbar-light #footer.navbar-nav #footer.nav-link:visited {
+    text-decoration-line: underline;
+    background-color: rgb(83, 6, 6);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(215, 219, 166);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
 }

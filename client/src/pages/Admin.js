@@ -1,21 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import API from '../utils/AdminAPI'
+// import API from '../utils/AdminAPI'
 import Dashboard from '../components/Admin/Dashboard';
 
-export default class Login extends React.Component {
+export default class Admin extends React.Component {
     state = {
         email: "",
         password: "",
         loggedIn: false
     };
 
-    handleChange = e => {
-        const { name, value } = e.target;
-        this.setState({ [name]: value })
-    };
-
-    loginUser = async () => {
+    loginUser = async (loggedIn) => {
+        this.setState({loggedIn})
         console.log(this.state)
         try {
             const User = await API.loginUser(this.state)
@@ -43,11 +39,8 @@ export default class Login extends React.Component {
             )
         } else {
             return (
-                <>
-                    Email: <input type="text" name="email" onChange={this.handleChange} /><br />
-                    Password: <input type="text" name="password" onChange={this.handleChange} /><br />
-                    <button onClick={this.loginUser}>Login</button>
-                </>
+                <div>
+                </div>
             )
         }
     }

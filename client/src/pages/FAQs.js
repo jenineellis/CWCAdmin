@@ -7,14 +7,14 @@ class FAQs extends Component {
       <div id="faqs">
         <h3>FAQs</h3>
 
-        <h4>
-          <em>What Are Your Shipping & Delivery Practices?</em>
-        </h4>
+        <hr />
+
+        <h4>What Are Your Shipping & Delivery Practices?</h4>
         <p>
-          <strong>All product is shipped at 56°.</strong> It’s not just hype;
-          it’s what we do to guarantee quality. Every wine is shipped under
-          perfect temperature-control. If you want to arrange a tour of our
-          facility, BRING A JACKET! It’s always 56°.
+          <strong>All product is shipped at 56°.</strong> It&rsquo;s not just
+          hype; it&rsquo;s what we do to guarantee quality. Every wine is
+          shipped under perfect temperature-control. If you want to arrange a
+          tour of our facility, BRING A JACKET! It&rsquo;s always 56°.
         </p>
 
         <p>
@@ -41,19 +41,19 @@ class FAQs extends Component {
         </p>
 
         <br />
-
+        <hr />
         <h4>
           <em>Can You Ship Anywhere?</em>
         </h4>
         <p>
           <strong>We CANNOT currently ship to the following states:</strong>
           <ul>
-            <li>Alabama</li>
-            <li>Arkansas</li>
-            <li>Delaware</li>
-            <li>Mississippi</li>
-            <li>Utah</li>
-            <li>West Virginia</li>
+            <li id="contact">• Alabama</li>
+            <li id="contact">• Arkansas</li>
+            <li id="contact">• Delaware</li>
+            <li id="contact">• Mississippi</li>
+            <li id="contact">• Utah</li>
+            <li id="contact">• West Virginia</li>
           </ul>
         </p>
 
@@ -68,16 +68,15 @@ class FAQs extends Component {
         </p>
 
         <br />
-
-        <h4>
-          <em>What Are Your Return/Refund Policies?</em>
-        </h4>
+        <hr />
+        <h4>What Are Your Return/Refund Policies?</h4>
         <p>
           Your satisfaction with California Wine Cooperative is extremely
-          important, and we will make every effort to make sure you’re happy
-          with the wines you purchase from us. Because wine is a perishable
-          product, there is no need for you to return it to us. All we ask is
-          that you contact us directly by phone or email to initiate a refund.
+          important, and we will make every effort to make sure you&rsquo;re
+          happy with the wines you purchase from us. Because wine is a
+          perishable product, there is no need for you to return it to us. All
+          we ask is that you contact us directly by phone or email to initiate a
+          refund.
         </p>
 
         <p>
@@ -90,16 +89,14 @@ class FAQs extends Component {
           email, whichever is most convenient to you.
         </p>
 
-        <p>
-          We’re available 7 days a week.
-          <ul>
-            <li>Mon-Fri 10AM – 8PM</li>
-            <li>Sat 9AM – 8PM</li>
-            <li>Sun 12PM – 4PM</li>
-            <li>Phone: 888-DRINK-CWC</li>
-            <li>Email: info@cwc.com</li>
-          </ul>
-        </p>
+        <th>We&rsquo;re available 7 days a week.</th>
+        <ul>
+          <li id="contact">• Mon - Fri 10AM – 8PM</li>
+          <li id="contact">• Sat 9AM – 8PM</li>
+          <li id="contact">• Sun 12PM – 4PM</li>
+          <li id="contact">• Phone: 888-POUR-CWC</li>
+          <li id="contact">• Email: info@cwc.com</li>
+        </ul>
       </div>
     );
   }

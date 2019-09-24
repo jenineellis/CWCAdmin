@@ -5,7 +5,9 @@ class Cart extends React.Component {
     render() {
         return (
             <CartCard>
-                <CartTable>
+                <h1>Cart: {this.props.cartItems.length} items</h1>
+                {this.props.cartItems.length > 0 ?
+                (<CartTable>
                     {this.props.cartItems.map(cartItem => (
                         <CartItems 
                         productName = {cartItem.name}
@@ -15,6 +17,9 @@ class Cart extends React.Component {
                         </CartItems>
                     ))}  
                 </CartTable>
+
+                ) : <div>Looks a little empty. Browse our collection of wines.</div>}
+                
             </CartCard>
         )
     }

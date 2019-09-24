@@ -29,11 +29,7 @@
     "mongoose": "^5.7.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-<<<<<<< HEAD
     "react-responsive-carousel": "^3.1.50",
     "react-router": "^5.0.1"
-=======
-    "react-responsive-carousel": "^3.1.50"
->>>>>>> 4b09af65088b8c553900a7daa0b61d9ab7f253ef
   }
 }

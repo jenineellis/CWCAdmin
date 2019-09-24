@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import API from '../utils/AdminAPI'
+import API from '../utils/AdminAPI'
 import Dashboard from '../components/Admin/Dashboard';
 
 export default class Admin extends React.Component {

@@ -1,11 +1,11 @@
-a {
+a:link, a:visited {
     color: rgb(83, 6, 6);
     text-decoration-style: solid;
     text-decoration: underline;
     font-weight: bold;
 }
 
-a:hover {
+a:hover, a:active {
     color: rgb(145, 1, 1);
     text-decoration-style: underline;
     text-decoration: rgb(83, 6, 6);
@@ -153,7 +153,7 @@ li {
     z-index: 3;
 }
 
-.navbar .navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link:visited {
+.navbar .navbar-light .navbar-nav a.nav-link, .navbar-light .navbar-nav a.nav-link:visited {
     text-decoration-line: none;
     background-color: rgb(83, 6, 6);
     font-family: Arial, Helvetica, sans-serif;
@@ -163,8 +163,12 @@ li {
     font-size: 16px;
 }
 
-.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:active {
+.navbar-light .navbar-nav a.nav-link:hover, .navbar-light .navbar-nav a.nav-link:active {
     color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(215, 219, 166);
 }
 
 p {

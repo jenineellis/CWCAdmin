@@ -12,6 +12,9 @@ import Cart from "./pages/Cart";
 import TopNav from "./components/TopNav";
 import BottomNav from "./components/BottomNav";
 import OurProducers from "./pages/OurProducers";
+import Blogs from "./pages/Blogs";
+import About from "./pages/About";
+import Terms from "./pages/Terms";
 import FAQs from "./pages/FAQs";
 
 class App extends React.Component {
@@ -31,13 +34,13 @@ class App extends React.Component {
     return this.state[name];
   }
 
-  handleAddToCart = (wine) => {
+  handleAddToCart = wine => {
     console.log("add wine to cart", wine);
     var exisitingCart = this.state.cartItems;
     this.setState({
       cartItems: [...exisitingCart, wine]
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -62,7 +65,31 @@ class App extends React.Component {
                 <Route exact path="/wines" render={() => (<Wines onAddToCart = {this.handleAddToCart} />)} />
                 <Route exact path="/wine/:id" render={(routeProps) => (<WineDetails onAddToCart = {this.handleAddToCart} {...routeProps}/>)} />
                 <Route exact path="/cart" render={() => (<Cart cartItems = {this.state.cartItems} />)} /> 
+                <Route exact path="/admin" render={() => (<Login updateGlobalState={this.updateGlobalState} /> )} />
+                <Route
+                  exact
+                  path="/wines"
+                  render={() => <Wines onAddToCart={this.handleAddToCart} />}
+                />
+                <Route
+                  exact
+                  path="/wine/:id"
+                  render={routeProps => (
+                    <WineDetails
+                      onAddToCart={this.handleAddToCart}
+                      {...routeProps}
+                    />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/cart"
+                  render={() => <Cart cartItems={this.state.cartItems} />}
+                />
                 <Route exact path="/producers" component={OurProducers} />
+                <Route exact path="/blogs" component={Blogs} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/terms" component={Terms} />
                 <Route exact path="/faqs" component={FAQs} />
                 <Route component={NoMatch} />
               </Switch>

@@ -6,6 +6,7 @@ class FAQs extends Component {
     return (
       <div id="faqs">
         <h3>FAQs</h3>
+        <hr />
 
         <div className="scroll">
           <h4>What Are Your Shipping & Delivery Practices?</h4>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 
 class About extends Component {
   state = {};
@@ -7,6 +6,9 @@ class About extends Component {
     return (
       <div id="about">
         <h3>About Us</h3>
+
+        <hr />
+
         <div className="scroll">
           <p>
             California Wine Cooperative is unique. In 2019, students in a Web

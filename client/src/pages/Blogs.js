@@ -6,6 +6,7 @@ class Blogs extends Component {
     return (
       <div id="blogs">
         <h3>Blogs We Love</h3>
+        <hr />
 
         <div className="scroll">
           <h4>

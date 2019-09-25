@@ -115,10 +115,11 @@ br {
 
 h3 {
     font-family: "Times New Roman", Times, serif;
-    font-size: 16pt;
+    font-size: 18pt;
     font-weight: bold;
     color: rgb(83, 6, 6);
     margin-bottom: 7pt;
+    margin-left: 7px;
 }
 
 h4 {
@@ -126,15 +127,9 @@ h4 {
     font-size: 14pt;
     font-weight: bold;
     text-decoration-style: solid;
+    color: rgb(83, 6, 6);
     text-decoration: rgb(83, 6, 6);
     margin-bottom: 7pt;
-}
-
-th {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11pt;
-    line-height: 14pt;
-    margin-bottom: 4.6pt;
 }
 
 li {
@@ -143,6 +138,13 @@ li {
     line-height: 14pt;
     margin-top: 4.6pt;
     margin-left: 7pt;
+}
+
+li.slide.selected,
+li.slide {
+    background-color: white;
+    padding: 0;
+
 }
 
 #message {
@@ -154,6 +156,24 @@ li {
     color: black;
     cursor: pointer;
     z-index: 3;
+}
+
+.myCarousel button {
+    color: white;
+    height: 100%;
+    vertical-align: center;
+}
+
+.myCarousel {
+    position: absolute;
+    height: 100%;
+}
+
+.myCarousel .carousel,
+.slider-wrapper,
+.slider,
+.carousel .slide img {
+    height: 100%;
 }
 
 .navbar .navbar-light .navbar-nav a.nav-link,
@@ -190,39 +210,13 @@ p {
     position: absolute;
 }
 
-/* 
-.scroll {
-    height: 585px;
-    overflow-y: scroll;
-} */
+th {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 14pt;
+    margin-bottom: 4.6pt;
+}
 
 .wineCard {
     width: 300px;
-}
-
-
-
-.myCarousel button {
-    color: white;
-    height: 100%;
-    vertical-align: center;
-}
-
-.myCarousel {
-    position: absolute;
-    height: 100%;
-}
-
-.myCarousel .carousel,
-.slider-wrapper,
-.slider,
-.carousel .slide img {
-    height: 100%;
-}
-
-li.slide.selected,
-li.slide {
-    background-color: white;
-    padding: 0;
-
 }

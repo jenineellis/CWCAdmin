@@ -7,6 +7,8 @@ class Terms extends Component {
       <div id="terms">
         <h3>Terms and Conditions</h3>
 
+        <hr />
+        
         <div className="scroll">
           <h4>Use of CWC</h4>
 

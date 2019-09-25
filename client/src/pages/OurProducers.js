@@ -6,6 +6,9 @@ class OurProducers extends Component {
     return (
       <div id="producers">
         <h3>Our Producers</h3>
+
+        <hr />
+
         <div className="scroll">
           <p>
             <img

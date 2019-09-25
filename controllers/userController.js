@@ -19,10 +19,10 @@ module.exports = {
 
             console.log(dbData);
             if (!dbData) {
-                res.status(401).send('Incorrect Email and/or Password')
+                // res.status(401).send('Incorrect Email and/or Password')
             }
             if (!dbData.checkPassword(req.body.password)) {
-                res.status(401).send('Incorrect Email and/or Password')
+                // res.status(401).send('Incorrect Email and/or Password')
             }
             console.log(dbData)
             res.json({

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import API from '../../utils/AdminAPI';
 import { Modal, Form } from 'react-bootstrap';
-const loginError = "";
+
 
 class Login extends Component {
     state = {
         email: "",
         password: "",
         loggedIn: "",
-        showLoginError: false
+
     };
 
     constructor(props) {
@@ -25,18 +25,20 @@ class Login extends Component {
     }
 
 
-    loginUser = async () => {
+    loginUser = () => {
         try {
-            const User = await API.loginUser(this.state)
-            console.log(User.response)
-            this.props.updateGlobalState("User", User.data)
+            console.log("clicked log in:")
+            const User = API.loginUser(this.state)
+            console.log("clicked log in again:", User)
+            
+            this.props.updateGlobalState("User", User.email)
             this.props.updateGlobalState("loggedIn", true)
-            this.props.updateGlobalState('showModal', false)
-            this.props.updateGlobalState('loginError', User.data)
+            this.props.updateGlobalState("showModal", false)
+            // this.props.updateGlobalState('loginError', User.data)
         } catch (error) {
             this.props.updateGlobalState("loggedIn", false)
             this.props.updateGlobalState('showModal', true)
-            this.props.updateGlobalState('loginError', true)
+            // this.props.updateGlobalState('loginError', true)
         }
     };
 
@@ -44,7 +46,7 @@ class Login extends Component {
         const handleHide = () => { this.props.updateGlobalState("showModal", false) };
         return (
             <div>
-                <Modal show={this.props.getGlobalState('showModal')} onHide={handleHide} >
+                <Modal show={this.props.getGlobalState("showModal")} onHide={handleHide} >
                     <Modal.Header closeButton>
                         <Modal.Title className="justify-content-around">Sign in</Modal.Title>
                     </Modal.Header>
@@ -53,7 +55,7 @@ class Login extends Component {
                             <div className="tab-content">
                                 <Form>
                                     <div className="tab-pane fade in show active" id="panel1" role="tabpanel">
-                                        <label>Incorrect Email and/or Password</label>
+                                        {/* <label>Incorrect Email and/or Password</label> */}
                                         <input type="email" id="emaillogin" className="form-control mb-4" placeholder="E-mail" autoComplete="username" name="email" onChange={this.handleChange} />
                                         <input type="password" id="password" className="form-control mb-4" placeholder="Password" autoComplete="current-password" name="password" onChange={this.handleChange} />
                                         <div className="d-flex justify-content-around">

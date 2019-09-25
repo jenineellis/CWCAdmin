@@ -6,7 +6,7 @@ class Cart extends React.Component {
         return (
             <div>
                 <CartCard>
-                    <h1>Cart: {this.props.cartItems.length} items</h1>
+                    <h1 class="card-title">Cart: {this.props.cartItems.length} items</h1>
                     {this.props.cartItems.length > 0 ?
                         (<CartTable>
                             {this.props.cartItems.map(cartItem => (
@@ -23,6 +23,7 @@ class Cart extends React.Component {
                         ) : <div>Looks a little empty. Browse our collection of wines.</div>}
                 </CartCard>
                 <CartCard>
+                    <h1 class="card-title">Shipping Information</h1>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input type="text" class="form-control" id="firstNameInput" placeholder="First Name" />

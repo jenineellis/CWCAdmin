@@ -4,7 +4,7 @@ import { CartCard, CartTable, CartItems, Subtotal } from "../components/CartPage
 class Cart extends React.Component {
     render() {
         return (
-            <div>
+            <div className="scroll">
                 <CartCard>
                     <h1 class="card-title">Cart: {this.props.cartItems.length} items</h1>
                     {this.props.cartItems.length > 0 ?

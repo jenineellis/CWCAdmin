@@ -14,7 +14,8 @@ class Wines extends React.Component {
         color: "",      // User's color choice
         region: "",     // User's region choice
         varietal: "",   // User's varietal choice
-        price: ""       // User's price choice (high/medium/low)
+        price: "",      // User's price choice (high/medium/low)
+        textQuery: ""   // User's search terms
     };
 
     componentDidMount() {
@@ -31,6 +32,8 @@ class Wines extends React.Component {
             filter.varietal = this.state.varietal;
         if (this.state.price)
             filter.price = this.state.price;
+        if (this.state.textQuery)
+            filter.textQuery = this.state.textQuery;
 
         API.getWines(filter)
           .then(res => this.setState({ wines: res.data }) )
@@ -65,12 +68,23 @@ class Wines extends React.Component {
         this.setState({ price: priceValue }, () => this.loadWines());
     }
 
+    handleTextQueryChange = (event) => {
+        var textQueryValue = event.target.value;
+        this.setState({ textQuery: textQueryValue });
+    }
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+        this.loadWines();
+    }
+
     handleClearAll = (event) => {
         this.setState({
             color: "",
             region: "",
             varietal: "",
-            price: ""
+            price: "",
+            textQuery: ""
         }, () => this.loadWines());
     }
     
@@ -78,7 +92,7 @@ class Wines extends React.Component {
         return (
             <div>
 
-                <form>
+                <form onSubmit={this.handleFormSubmit}>
 
                     {/* Color selector */}
                     <select value={this.state.color} onChange={this.handleColorChange}>
@@ -113,7 +127,12 @@ class Wines extends React.Component {
                         <option value="high">Above $50</option>
                     </select>
 
-                    <button className="btn-browse" onClick={this.handleClearAll}>Clear all filters</button>
+                    <input type="search" placeholder="Search" value={this.state.textQuery} onChange={this.handleTextQueryChange} />
+
+                    <button>Go</button>
+
+                    <button type="button" className="btn-browse" onClick={this.handleClearAll}>Clear all filters</button>
+
                 </form>
                 <hr />
 

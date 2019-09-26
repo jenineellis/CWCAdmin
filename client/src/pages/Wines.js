@@ -113,7 +113,12 @@ class Wines extends React.Component {
                         <option value="high">Above $50</option>
                     </select>
 
+                    <input type="search" placeholder="Search" />
+
+                    <button>Go</button>
+
                     <button className="btn-browse" onClick={this.handleClearAll}>Clear all filters</button>
+
                 </form>
                 <hr />
 

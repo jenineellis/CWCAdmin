@@ -1,3 +1,4 @@
+
 const User = require('../models/user')
 
 module.exports = {
@@ -15,15 +16,14 @@ module.exports = {
     // Authenticate User
     loginUser: async function (req, res) {
         try {
-            const dbData = await User.findOne({ email: req.body.email, userType: 'Admin' });
+            const dbData = await User.findOne({ email: req.body.email });
 
             console.log(dbData);
             if (!dbData) {
-                throw 'No Admin Found'
+                // res.status(401).send('Incorrect Email and/or Password')
             }
             if (!dbData.checkPassword(req.body.password)) {
-                console.log("incorrect password")
-                throw 'Incorrect password'
+                // res.status(401).send('Incorrect Email and/or Password')
             }
             console.log(dbData)
             res.json({
@@ -31,9 +31,9 @@ module.exports = {
                 email: dbData.email,
                 userType: dbData.userType
             })
-            
+
         } catch (error) {
-            res.send(error)
+            res.status(403).send('Error had occurred, please refresh and try again')
         }
     },
 

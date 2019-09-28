@@ -13,16 +13,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/CDCDB", { useNe
 
 winescrape.scrapeAll()
   .then((wineSeed) => {
-  // wineSeed is an array of wines obtained from scraping wine.com
-  db.Wine
-    .deleteMany({})
-    .then(() => db.Wine.collection.insertMany(wineSeed))
-    .then(data => {
-      console.log(data.result.n + " records inserted!");
-      process.exit(0);
-    })
-    .catch(err => {
-      console.log(err);
-      process.exit(1);
-    })
-});
+    // wineSeed is an array of wines obtained from scraping wine.com
+    db.Wine
+      .deleteMany({})
+      .then(() => db.Wine.collection.insertMany(wineSeed))
+      .then(data => {
+        console.log(data.result.n + " records inserted!");
+        process.exit(0);
+      })
+      .catch(err => {
+        console.log(err);
+        process.exit(1);
+      })
+  });

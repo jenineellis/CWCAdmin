@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const db = require('../models');
-
+require('dotenv').config()
 // This file deletes the existing users and creates new ones
 
 mongoose.connect(

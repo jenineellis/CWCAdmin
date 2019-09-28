@@ -7,7 +7,7 @@ class Login extends Component {
     state = {
         email: "",
         password: "",
-        loggedIn: "",
+        useUserState: "",
 
     };
 
@@ -32,11 +32,11 @@ class Login extends Component {
             console.log("clicked log in again:", User)
 
             this.props.updateGlobalState("User", User.email)
-            this.props.updateGlobalState("loggedIn", true)
+            this.props.updateGlobalState("useUserState", true)
             this.props.updateGlobalState("showModal", false)
             // this.props.updateGlobalState('loginError', User.data)
         } catch (error) {
-            this.props.updateGlobalState("loggedIn", false)
+            this.props.updateGlobalState("useUserState", false)
             this.props.updateGlobalState('showModal', true)
             // this.props.updateGlobalState('loginError', true)
         }

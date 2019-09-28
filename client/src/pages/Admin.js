@@ -7,27 +7,27 @@ export default class Admin extends React.Component {
     state = {
         email: "",
         password: "",
-        loggedIn: false
+        useUserState: false
     };
 
-    loginUser = async (loggedIn) => {
-        this.setState({ loggedIn })
+    loginUser = async (useUserState) => {
+        this.setState({ useUserState })
         console.log(this.state)
         try {
             const User = await API.loginUser(this.state)
             console.log(User)
             this.props.updateGlobalState("User", User.data)
-            this.setState({ loggedIn: true })
+            this.setState({ useUserState: true })
             console.log(this.state)
         } catch (error) {
             console.log(error.message)
-            this.setState({ loggedIn: false })
+            this.setState({ useUserState: false })
             console.log(this.state)
         }
     };
 
     render() {
-        if (this.state.loggedIn) {
+        if (this.state.useUserState) {
             return (
                 <Router>
                     <div>

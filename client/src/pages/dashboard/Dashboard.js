@@ -8,7 +8,7 @@ import Widget from "../../components/Widget";
 import PageTitle from "../../components/PageTitle";
 import { Typography } from "../../components/Wrappers";
 import Dot from "../../components/Sidebar/components/Dot";
-import Table from "./components/Table/Table";
+import Table from "./components/producerTable/Table";
 import BigStat from "./components/BigStat/BigStat";
 
 const mainChartData = getMainChartData();

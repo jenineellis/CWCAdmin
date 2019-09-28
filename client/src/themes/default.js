@@ -6,6 +6,7 @@
 
 .navbar{
   border-radius: 20px;
+  // #910101;
   background-color: #530606;
   border-color: #00000033;
   color: #fff;

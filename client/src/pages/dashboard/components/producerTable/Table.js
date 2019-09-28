@@ -2,15 +2,18 @@ import React from "react";
 import { Table, TableRow, TableHead, TableBody, TableCell, } from "@material-ui/core";
 
 // components
-import { Button } from "../../../../components/Wrappers";
+import { Button } from "../../../../components/Wrappers/Wrappers";
 
 const states = {
   sent: "success",
   pending: "warning",
   declined: "secondary",
+  inventory: "",
+  top: "",
+  status: "success",
 };
 
-export default function TableComponent({ data }) {
+export default function ProducerTableComponent({ data }) {
   var keys = Object.keys(data[0]).map(i => i.toUpperCase());
   keys.shift(); // delete "id" key
 
@@ -24,23 +27,23 @@ export default function TableComponent({ data }) {
         </TableRow>
       </TableHead>
       <TableBody>
-        {data.map(({ id, name, email, product, price, date, city, status }) => (
+        {data.map(({ id, fullName, email, name, stock, volume}) => (
           <TableRow key={id}>
             <TableCell className="pl-3 fw-normal">{name}</TableCell>
+            <TableCell>{fullName}</TableCell>
             <TableCell>{email}</TableCell>
-            <TableCell>{product}</TableCell>
-            <TableCell>{price}</TableCell>
-            <TableCell>{date}</TableCell>
-            <TableCell>{city}</TableCell>
+            <TableCell>{name}</TableCell>
+            <TableCell>{stock}</TableCell>
+            <TableCell>{volume}</TableCell>
             <TableCell>
-              <Button
+              {/* <Button
                 color={states[status.toLowerCase()]}
                 size="small"
                 className="px-2"
                 variant="contained"
               >
                 {status}
-              </Button>
+              </Button> */}
             </TableCell>
           </TableRow>
         ))}

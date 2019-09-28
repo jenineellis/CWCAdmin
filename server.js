@@ -1,5 +1,4 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
@@ -18,7 +17,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// MONGODB_URI=mongodb://fantastic4:Q8ch8Mb!ne6vLii@ds243254.mlab.com:43254/heroku_xgh5ct08
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://fantastic4:Q8ch8Mb!ne6vLii@ds243254.mlab.com:43254/heroku_xgh5ct08', { useNewUrlParser: true });

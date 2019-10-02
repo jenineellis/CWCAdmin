@@ -1,5 +1,7 @@
 module.exports = {
   Wine: require("./wine"),
   User: require('./user'),
-  Orders: require('./orders')
+  Orders: require('./orders'),
+  WineReport: require('./winPartDeaux'),
+  Vineyard: require('./vineyard')
 };

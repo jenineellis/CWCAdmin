@@ -18,6 +18,45 @@ const userSchema = new Schema({
         enum: ['Admin', 'User', 'Producer'],
         default: 'User'
     },
+    firstName: String,
+    lastName: String,
+    address1: String,
+    address2: String,
+    city: String,
+    state: String,
+    zipCode: String,
+    vineyardFullname: String,
+    accountNumber: String
+});
+
+const userReportingSchema = new Schema({
+    email: {
+        type: String,
+        unique: true,
+        require: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    userType: {
+        type: String,
+        enum: ['Admin', 'User', 'Producer'],
+        default: 'User'
+    },
+    firstName: String,
+    lastName: String,
+    address1: String,
+    address2: String,
+    city: String,
+    state: String,
+    zipCode: String,
+    vineyardFullname: String,
+    accountNumber: String,
+    vineyardId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Vineyard'
+    }
 })
 
 userSchema.methods = {

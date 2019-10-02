@@ -34,7 +34,7 @@ export default function TableComponent({ data }) {
             <TableCell>{city}</TableCell>
             <TableCell>
               <Button
-                color={states[status.toLowerCase()]}
+
                 size="small"
                 className="px-2"
                 variant="contained"

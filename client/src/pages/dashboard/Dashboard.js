@@ -10,6 +10,7 @@ import { Typography } from "../../components/Wrappers";
 import Dot from "../../components/Sidebar/components/Dot";
 import Table from "./components/producerTable/Table";
 import BigStat from "./components/BigStat/BigStat";
+import axios from 'axios';
 
 const mainChartData = getMainChartData();
 const PieChartData = [
@@ -22,9 +23,26 @@ const PieChartData = [
 export default function Dashboard(props) {
   var classes = style();
   var theme = useTheme();
+  const [producers, setProducers] = useState([]);
 
   // local
   var [mainChartState, setMainChartState] = useState("monthly");
+
+  // useEffect(() => {
+  //   console.log("useEffect Hook");
+
+  //   const runAPI = async () => {
+  //     const response = await axios({
+  //       method: "GET",
+  //       url: "/api/reports/getProducer"
+  //     })
+  //     setProducers(response.data)
+  //   };
+
+  //   runAPI();
+
+  // }, [])
+
 
   return (
     <>

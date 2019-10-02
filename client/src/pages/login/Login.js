@@ -4,8 +4,8 @@ import { withRouter } from "react-router-dom";
 import style from "./styles";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 // logo
-// import logo from "./logo.svg";
-// import google from "../../images/google.svg";
+import logo from "./logo-w194x100.png";
+
 
 function Login(props) {
   var classes = style();
@@ -20,8 +20,8 @@ function Login(props) {
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
-        {/* <img src={logo} alt="logo" className={classes.logotypeImage} /> */}
-        <Typography className={classes.logotypeText}>Material Admin</Typography>
+        <img src={logo} alt="logo" className={classes.logotypeImage} />
+        <Typography className={classes.logotypeText}>Calfornia Wine Cooperative</Typography>
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>

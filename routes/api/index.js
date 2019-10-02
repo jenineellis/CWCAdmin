@@ -11,4 +11,7 @@ router.use('/user', userRoutes);
 // Order Routes
 router.use('/orders', userRoutes);
 
+// Report routes
+router.use("/reports", reportingRoutes);
+
 module.exports = router;

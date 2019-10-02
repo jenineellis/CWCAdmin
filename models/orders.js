@@ -16,11 +16,6 @@ const orderSchema = new Schema({
    city: String,   
    state: String,
    zipCode: String,
-   cardholderName: String,
-   cardNumber: String,
-   expMonth: String,
-   expYear: String,
-   securityCode: String
 });
 
 const Orders = mongoose.model("Orders", orderSchema);

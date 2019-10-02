@@ -4,7 +4,7 @@ export default {
     loginUser: function (data) {
         return axios.post('/api/user/admin', data)
     }
-}, 
+}
 // export default {
 //     allUsers: function (data) {
 //         return axios.post('/api/user/admin', data)

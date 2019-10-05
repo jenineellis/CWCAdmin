@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import style from "./styles";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 // logo
-// import logo from "./logo.svg";
+import logo from "./logo.svg";
 // import google from "../../images/google.svg";
 
 function Login(props) {
@@ -21,7 +21,7 @@ function Login(props) {
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
         {/* <img src={logo} alt="logo" className={classes.logotypeImage} /> */}
-        <Typography className={classes.logotypeText}>Material Admin</Typography>
+        <Typography className={classes.logotypeText}>California Wine Cooperation</Typography>
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>

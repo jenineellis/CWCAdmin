@@ -1,70 +1,24 @@
-/* .navbar-light .navbar-nav .nav-link {
-  color: #d7dba6cd;
-  list-style-type: none;
-  width:100%;
-}
-
-.navbar{
-  border-radius: 20px;
-  // #910101;
-  background-color: #530606;
-  border-color: #00000033;
-  color: #fff;
-  list-style: none;
-  margin: 0 2px;
-  display: flex;
-  justify-content: space-around;
-  padding: 2.7rem;
-}
-
-.navbar .nav-pills >li >a {
-  color: #d7dba6;
-  padding: 2rem;
-  background-color: #530606;
-  border-color: #00000033;
-  list-style-type: none;
-  width:100%;
-  padding: 2.7rem;
-
- }
-
-.navbar .nav-pills > li > a:hover {
-  color: #000;
-  background-color: #530606;
-  border-color: #00000033;
-  border-radius: 20px;
-  padding: 2.7rem;
-  list-style-type: none;
-  width:100%;
- }
-
- li{
-   margin: 10px;
-   padding: 2rem;
-   background-color: #530606;
-   border-color: #00000033;
-   list-style-type: none;
-   padding: 2.7rem;
-   width:100%;
-}
-
-
-.navbar .nav-pills .active {
-  background-color: #D7DBA6;
-  color:#000;
-  font-weight:bolder;
-  border-radius: 20px;
-  padding: 2.7rem;
-  list-style-type: none;
-  width:100%;
-} */
+// Red
+// #530606
+// Black
+// #000
+// Blue
+// #000033
+// Yellow
+// #FFC260
+// LtGreen
+// #D7DBA6
+// Green
+// #047D53
+// Red
+// #910101
 import tinycolor from "tinycolor2";
 
 const primary = "#530606";
 const secondary = "#000033";
-const warning = "#FFC260";
-const success = "#3CD4A0";
-const info = "#9013FE";
+const warning = "#910101";
+const success = "#047D53";
+const info = "#000033";
 
 const lightenRate = 7.5;
 const darkenRate = 15;
@@ -118,22 +72,22 @@ export default {
         .toHexString(),
     },
     text: {
-      primary: "#D7DBA6",
-      secondary: "#6E6E6E",
-      hint: "#B9B9B9",
+      primary: "#000033",
+      secondary: "#047D53",
+      hint: "#6E6E6E",
     },
     background: {
-      default: "#000000",
-      light: "#000000",
+      default: "#fff",
+      light: "#FFC260",
     },
   },
   customShadows: {
     widget:
-      "0px 3px 11px 0px #D7DBA6, 0 3px 3px -2px #D7DBA6, 0 1px 8px 0 #D7DBA6",
+      "0px 3px 11px 0px #FFC260, 0 3px 3px -2px #FFC260, 0 1px 8px 0 #FFC260",
     widgetDark:
-      "0px 3px 18px 0px #D7DBA6, 0 3px 3px -2px #D7DBA6, 0 1px 8px 0 #D7DBA6",
+      "0px 3px 18px 0px #FFC260, 0 3px 3px -2px #FFC260, 0 1px 8px 0 #FFC260",
     widgetWide:
-      "0px 12px 33px 0px #D7DBA6, 0 3px 3px -2px #D7DBA6, 0 1px 8px 0 #D7DBA6",
+      "0px 12px 33px 0px #FFC260, 0 3px 3px -2px #FFC260, 0 1px 8px 0 #FFC260",
   },
   overrides: {
     MuiBackdrop: {
@@ -144,7 +98,7 @@ export default {
     MuiMenu: {
       paper: {
         boxShadow:
-          "0px 3px 11px 0px #D7DBA6, 0 3px 3px -2px #D7DBA6, 0 1px 8px 0 #D7DBA6",
+          "0px 3px 11px 0px #910101, 0 3px 3px -2px #910101, 0 1px 8px 0 #910101",
       },
     },
     MuiSelect: {
@@ -155,9 +109,9 @@ export default {
     MuiListItem: {
       root: {
         "&$selected": {
-          backgroundColor: "#F3F5FF !important",
+          backgroundColor: "#000033 !important",
           "&:focus": {
-            backgroundColor: "#F3F5FF",
+            backgroundColor: "#000033",
           },
         },
       },
